@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="歐洲見學 2026">
+<meta name="theme-color" content="#1A1A18">
+<title>歐洲見學 · Architecture Field Trip 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#F7F4EF;
+  --card:#FFFFFF;
+  --muted:#EEEAE3;
+  --ink1:#1A1A18;
+  --ink2:#5C5A55;
+  --ink3:#9A9690;
+  --accent:#8B4513;
+  --accent-lt:#F3EDE6;
+  --gold:#C4871E;
+  --gold-lt:#FDF4E3;
+  --blue:#1E5C9A;
+  --blue-lt:#E8F0F9;
+  --green:#2E6B45;
+  --green-lt:#E8F4ED;
+  --red:#B83232;
+  --red-lt:#FAEAEA;
+  --line:#E4DFD8;
+  --sketch:#6B6860;
+  --r:10px;
+  --rs:6px;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink1);font-family:'Noto Sans TC',-apple-system,sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* ── HERO ── */
+.hero{background:var(--ink1);color:#F7F4EF;padding:56px 24px 48px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(255,255,255,.6) 28px,rgba(255,255,255,.6) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(255,255,255,.6) 28px,rgba(255,255,255,.6) 29px)}
+.hero-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,239,.4);margin-bottom:20px}
+.hero-title{font-family:'Shippori Mincho','Noto Serif TC',serif;font-size:clamp(38px,9vw,64px);font-weight:400;line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
+
+.hero-en{font-family:'DM Mono',monospace;font-size:clamp(11px,2.5vw,14px);letter-spacing:.14em;text-transform:uppercase;color:rgba(247,244,239,.45);margin-bottom:24px;font-weight:300}
+.hero-meta{font-size:14px;color:rgba(247,244,239,.5);font-family:'DM Mono',monospace;letter-spacing:.04em;line-height:2;margin-bottom:28px}
+.hero-pills{display:flex;flex-wrap:wrap;gap:7px}
+.hero-pill{font-family:'DM Mono',monospace;font-size:10px;padding:4px 12px;border:0.5px solid rgba(247,244,239,.18);border-radius:100px;color:rgba(247,244,239,.6);letter-spacing:.06em}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:200;background:rgba(247,244,239,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:0.5px solid var(--line)}
+.nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;max-width:860px;margin:0 auto;padding:0 20px}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-btn{flex:0 0 auto;padding:13px 14px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.07em;color:var(--ink3);background:none;border:none;border-bottom:1.5px solid transparent;margin-bottom:-0.5px;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s}
+.nav-btn.active{color:var(--ink1);border-bottom-color:var(--accent)}
+
+/* ── MAIN ── */
+.main{max-width:720px;margin:0 auto;padding:0 20px}
+.section{display:none;padding-bottom:80px}
+.section.active{display:block}
+
+/* ── SEC HEAD ── */
+.sec-head{padding:52px 0 36px}
+.sec-over{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.sec-title{font-family:'Shippori Mincho','Noto Serif TC',serif;font-size:clamp(28px,6vw,40px);font-weight:400;letter-spacing:-.02em;line-height:1.15;color:var(--ink1)}
+.sec-sub{font-size:14px;color:var(--ink3);margin-top:8px;font-weight:300}
+
+/* ── TRIP STATS ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:44px}
+.stat{background:var(--card);border:0.5px solid var(--line);border-radius:var(--rs);padding:18px 14px;text-align:center}
+.stat-n{font-family:'Shippori Mincho','Noto Serif TC',serif;font-size:30px;font-weight:400;color:var(--ink1);line-height:1}
+.stat-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:5px}
+
+/* ── ROUTE ── */
+.route{display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;background:var(--card);border:0.5px solid var(--line);border-radius:var(--rs);padding:16px 18px;margin-bottom:44px;gap:0}
+.route::-webkit-scrollbar{display:none}
+.route-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.route-name{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink2);padding:0 8px;white-space:nowrap;letter-spacing:.04em}
+.route-line{width:20px;height:0.5px;background:var(--line);flex-shrink:0}
+
+/* ── DAY CARD ── */
+.day{border-bottom:0.5px solid var(--line);background:var(--bg)}
+.day-head{display:flex;align-items:stretch;gap:0;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;padding:20px 0 16px}
+.day-num-wrap{min-width:52px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding-top:2px}
+.day-num{font-family:'Shippori Mincho','Noto Serif TC',serif;font-size:36px;font-weight:400;color:var(--line);line-height:1;letter-spacing:-.02em}
+.day-num.today{color:var(--accent)}
+.day-divider{width:0.5px;background:var(--line);margin:0 18px;flex-shrink:0}
+.day-info{flex:1;min-width:0}
+.day-date{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.day-city{font-family:'Shippori Mincho','Noto Serif TC',serif;font-size:18px;font-weight:400;color:var(--ink1);letter-spacing:-.01em;line-height:1.2}
+.day-preview{font-size:13px;color:var(--ink3);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'DM Mono',monospace;letter-spacing:.03em}
+.day-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.dtag{font-family:'DM Mono',monospace;font-size:10px;font-weight:400;padding:2px 8px;border-radius:100px;letter-spacing:.05em}
+.dtag-arch{background:var(--accent-lt);color:var(--accent)}
+.dtag-stay{background:var(--green-lt);color:var(--green)}
+.dtag-f1{background:var(--red-lt);color:var(--red)}
+.dtag-drive{background:var(--gold-lt);color:var(--gold)}
+.dtag-train{background:var(--muted);color:var(--ink2)}
+.dtag-wc{background:#FFF3E8;color:#B85C00}
+.day-chev{color:var(--ink3);font-size:18px;align-self:flex-start;margin-top:6px;flex-shrink:0;transition:transform .25s;padding:0 2px}
+.day.open .day-chev{transform:rotate(180deg)}
+
+/* ── EVENTS ── */
+.day-events{display:none;padding:0 0 20px 70px}
+.day.open .day-events{display:block}
+
+.ev{display:flex;gap:14px;padding:12px 0;border-bottom:0.5px solid var(--line)}
+.ev:last-child{border-bottom:none}
+.ev-left{width:42px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:2px}
+.ev-time{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);text-align:center;line-height:1.3;letter-spacing:.03em}
+.ev-icon{width:26px;height:26px;border-radius:var(--rs);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+.ei-sight{background:var(--accent-lt)}
+.ei-stay{background:var(--green-lt)}
+.ei-trans{background:var(--blue-lt)}
+.ei-f1{background:var(--red-lt)}
+.ei-food{background:var(--gold-lt)}
+.ei-wc{background:#FFF3E8}
+
+.ev-body{flex:1;min-width:0}
+.ev-name{font-size:15px;font-weight:500;color:var(--ink1);line-height:1.3}
+.ev-arch{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:2px;letter-spacing:.03em}
+.ev-desc{font-size:14px;color:var(--ink2);margin-top:4px;line-height:1.55}
+.ev-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:7px}
+.em{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);display:flex;align-items:center;gap:3px;letter-spacing:.03em}
+.em span{color:var(--ink2)}
+.ev-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.el{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);text-decoration:none;border-bottom:0.5px solid rgba(30,92,154,.3);letter-spacing:.04em;padding-bottom:1px}
+.badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;padding:1px 7px;border-radius:100px;margin-left:5px;vertical-align:middle;letter-spacing:.05em}
+.b-ok{background:var(--green-lt);color:var(--green)}
+.b-pend{background:var(--gold-lt);color:var(--gold)}
+.b-no{background:var(--red-lt);color:var(--red)}
+
+/* TRANSPORT BAR */
+.tbar{display:flex;align-items:center;gap:10px;padding:8px 0;color:var(--blue);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.04em}
+.tbar-line{flex:1;height:0.5px;background:var(--line)}
+
+/* WALK BAR */
+.walkbar{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);padding:6px 0;letter-spacing:.04em}
+
+/* F1 BOX */
+.f1box{background:linear-gradient(135deg,#180000,#2a0000);border:0.5px solid rgba(184,50,50,.25);border-radius:var(--rs);padding:14px 16px;margin:6px 0}
+.f1box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.f1box-row{font-size:12px;color:rgba(247,244,239,.55);padding:2px 0;font-family:'DM Mono',monospace;letter-spacing:.03em}
+.f1box-row strong{color:rgba(247,244,239,.85)}
+
+/* ── FOOD & SOUVENIR ── */
+.sub-tabs{display:flex;gap:0;border-bottom:0.5px solid var(--line);margin-bottom:0;overflow-x:auto;scrollbar-width:none}
+.sub-tabs::-webkit-scrollbar{display:none}
+.sub-tab{flex:0 0 auto;padding:10px 14px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.07em;color:var(--ink3);cursor:pointer;border-bottom:1.5px solid transparent;margin-bottom:-0.5px;background:none;border-top:none;border-left:none;border-right:none;white-space:nowrap;transition:color .2s}
+.sub-tab.on{color:var(--ink1);border-bottom-color:var(--accent)}
+.sub-panel{display:none;padding-top:8px}
+.sub-panel.on{display:block}
+
+.city-block{margin-bottom:32px}
+.city-lbl{font-family:'Shippori Mincho','Noto Serif TC',serif;font-size:20px;font-weight:400;color:var(--ink1);padding:20px 0 10px;border-bottom:0.5px solid var(--line);margin-bottom:4px;letter-spacing:-.01em}
+.city-sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+
+.food-item{padding:12px 0;border-bottom:0.5px dashed var(--line)}
+.food-item:last-child{border-bottom:none}
+.food-name{font-size:14px;font-weight:500;color:var(--ink1);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.food-badge{font-family:'DM Mono',monospace;font-size:9px;padding:1px 7px;border-radius:100px;letter-spacing:.05em}
+.fb-bib{background:var(--gold-lt);color:var(--gold)}
+.fb-local{background:var(--green-lt);color:var(--green)}
+.fb-cafe{background:var(--muted);color:var(--ink2)}
+.fb-mom{background:#F0EBF8;color:#5B2D8E}
+.food-detail{font-size:13px;color:var(--ink3);margin-top:3px;font-family:'DM Mono',monospace;letter-spacing:.03em}
+.food-must{font-size:13px;color:var(--ink2);margin-top:3px}
+
+.sov-item{padding:10px 0;border-bottom:0.5px dashed var(--line);display:flex;gap:12px;align-items:baseline}
+.sov-item:last-child{border-bottom:none}
+.sov-name{font-size:14px;font-weight:500;color:var(--ink1);flex-shrink:0;min-width:140px}
+.sov-note{font-size:13px;color:var(--ink3);line-height:1.5}
+
+/* ── INFO CARDS ── */
+.info-card{background:var(--card);border:0.5px solid var(--line);border-radius:var(--rs);padding:18px 20px;margin-bottom:12px}
+.info-card h3{font-size:12px;font-weight:500;color:var(--ink1);margin-bottom:10px;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+.info-list{list-style:none}
+.info-list li{font-size:14px;color:var(--ink2);padding:5px 0;border-bottom:0.5px solid var(--line);display:flex;align-items:baseline;gap:8px;line-height:1.5}
+.info-list li:last-child{border-bottom:none}
+.info-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px}
+.info-list a{color:var(--blue);text-decoration:none}
+.info-card.dark{background:var(--ink1);color:#F7F4EF}
+.info-card.dark h3{color:rgba(247,244,239,.4)}
+.info-card.dark .info-list li{color:rgba(247,244,239,.65);border-color:rgba(255,255,255,.08)}
+.info-card.dark .info-list li::before{background:var(--accent)}
+
+/* ── TODO / CHECKLIST ── */
+.todo-section-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);padding:20px 0 8px;border-bottom:0.5px solid var(--line);margin-bottom:4px}
+.todo-item{display:flex;align-items:flex-start;gap:13px;padding:12px 0;border-bottom:0.5px solid var(--line);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.todo-item:last-of-type{border-bottom:none}
+.todo-item.done .todo-body{opacity:.38}
+.todo-check{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .22s cubic-bezier(.34,1.56,.64,1)}
+.todo-item.done .todo-check{background:var(--green);border-color:var(--green)}
+.todo-check-icon{display:none;width:11px;height:8px}
+.todo-check-icon path{stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.todo-item.done .todo-check-icon{display:block}
+.todo-title{font-size:15px;font-weight:500;color:var(--ink1);line-height:1.3}
+.todo-item.done .todo-title{text-decoration:line-through}
+.todo-detail{font-size:13px;color:var(--ink3);margin-top:2px;line-height:1.5;font-family:'DM Mono',monospace;letter-spacing:.03em}
+.todo-detail a{color:var(--blue);text-decoration:none}
+.urg{font-family:'DM Mono',monospace;font-size:9px;padding:2px 8px;border-radius:100px;flex-shrink:0;align-self:flex-start;margin-top:3px;letter-spacing:.05em}
+.u-now{background:var(--red-lt);color:var(--red)}
+.u-soon{background:var(--gold-lt);color:var(--gold)}
+.u-info{background:var(--muted);color:var(--ink2)}
+
+/* ── TICKET TABLE ── */
+.ticket-table{background:var(--card);border:0.5px solid var(--line);border-radius:var(--rs);overflow:hidden;margin-bottom:20px}
+.ticket-head{padding:12px 18px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);background:var(--muted);border-bottom:0.5px solid var(--line)}
+.ticket-row{display:flex;justify-content:space-between;align-items:flex-start;padding:13px 18px;border-bottom:0.5px solid var(--line);gap:10px;transition:background .15s}
+.ticket-row:last-child{border-bottom:none}
+.ticket-row:hover{background:var(--muted)}
+.ticket-name{font-size:14px;font-weight:500;color:var(--ink1)}
+.ticket-sub{font-size:11px;color:var(--ink3);margin-top:2px;font-family:'DM Mono',monospace;letter-spacing:.03em}
+.ticket-urg{font-size:10px;margin-top:3px;font-family:'DM Mono',monospace;letter-spacing:.03em}
+.tn{color:var(--red);font-weight:500}.ts{color:var(--gold);font-weight:500}
+.ticket-price{font-family:'DM Mono',monospace;font-size:14px;font-weight:400;color:var(--ink1);white-space:nowrap;text-align:right;flex-shrink:0}
+.ticket-price-sub{font-size:10px;color:var(--ink3)}
+
+/* ── CANCEL TABLE ── */
+.cancel-grid{background:var(--card);border:0.5px solid var(--line);border-radius:var(--rs);overflow:hidden;margin-top:12px}
+.cancel-row{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:0.5px solid var(--line);gap:10px}
+.cancel-row:last-child{border-bottom:none}
+.cancel-hotel{font-size:13px;color:var(--ink2);font-family:'DM Mono',monospace;letter-spacing:.03em}
+.cancel-date{font-size:12px;font-weight:500;color:var(--ink1);text-align:right;flex-shrink:0;font-family:'DM Mono',monospace}
+.cancel-date.urg{color:var(--red)}
+
+/* ── HIGHLIGHT BOX ── */
+.hl-box{background:var(--ink1);border-radius:var(--rs);padding:20px 22px;margin-bottom:16px}
+.hl-box h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,244,239,.4);margin-bottom:8px}
+.hl-box p{font-size:13px;color:rgba(247,244,239,.65);line-height:1.7}
+
+/* ── ROAD TABLE ── */
+.road-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+.road-table th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding:8px 12px;border-bottom:0.5px solid var(--line);text-align:left;font-weight:400}
+.road-table td{padding:10px 12px;border-bottom:0.5px solid var(--line);color:var(--ink2);vertical-align:top;line-height:1.5}
+.road-table tr:last-child td{border-bottom:none}
+.road-table td:first-child{font-weight:500;color:var(--ink1);white-space:nowrap}
+.road-table .free{color:var(--green);font-family:'DM Mono',monospace;font-size:10px}
+.road-table .paid{color:var(--red);font-family:'DM Mono',monospace;font-size:10px}
+.road-table .unlimited{color:var(--accent);font-family:'DM Mono',monospace;font-size:10px;font-weight:500}
+
+@media(max-width:600px){
+  .hero{padding:44px 18px 36px}
+  .main{padding:0 16px}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .day-events{padding-left:0}
+  .nav-btn{padding:11px 12px;font-size:10px}
+  .day-num{font-size:30px}
+  .ev-left{width:36px}
+  .sov-item{flex-direction:column;gap:3px}
+  .sov-name{min-width:auto}
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-tag">建築見學紀錄 · 2026</div>
+  <h1 class="hero-title">歐洲見學</h1>
+  <p class="hero-en">Architecture Field Trip 2026</p>
+  <p class="hero-meta">2026年 7月12日 — 8月1日 · 荷蘭 · 比利時 · 盧森堡 · 法國 · 瑞士 · 德國</p>
+  <div class="hero-pills">
+    <span class="hero-pill">20 天</span>
+    <span class="hero-pill">6 個國家</span>
+    <span class="hero-pill">F1 比利時 GP</span>
+    <span class="hero-pill">Vitra Campus</span>
+    <span class="hero-pill">廊香教堂</span>
+    <span class="hero-pill">Rietveld House</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showTab('itinerary',this)">每日行程</button>
+    <button class="nav-btn" onclick="showTab('food',this)">美食伴手禮</button>
+    <button class="nav-btn" onclick="showTab('accom',this)">🏨 住宿</button>
+    <button class="nav-btn" onclick="showTab('checklist',this)">🎒 行李</button>
+    <button class="nav-btn" onclick="showTab('worldcup',this)">⚽ 世界盃</button>
+    <button class="nav-btn" onclick="showTab('todo',this)">代訂清單</button>
+    <button class="nav-btn" onclick="showTab('tickets',this)">門票</button>
+    <button class="nav-btn" onclick="showTab('mom',this)">景點介紹</button>
+    <button class="nav-btn" onclick="showTab('notes',this)">備忘</button>
+  </div>
+</nav>
+
+<div class="main">
+<section id="itinerary" class="section active">
+  <div class="sec-head">
+    <div class="sec-over">Day by Day</div>
+    <div class="sec-title">每日行程</div>
+    <div class="sec-sub">今天的行程自動展開 · 點擊每日標題可折疊</div>
+  </div>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-n">20</div><div class="stat-l">天</div></div>
+    <div class="stat"><div class="stat-n">6</div><div class="stat-l">國家</div></div>
+    <div class="stat"><div class="stat-n">13</div><div class="stat-l">間住宿</div></div>
+    <div class="stat"><div class="stat-n">9</div><div class="stat-l">天自駕</div></div>
+  </div>
+  <div class="route">
+  <div class="route-dot"></div><div class="route-name">桃園</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">鹿特丹</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">布魯日</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">SPA F1</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">盧森堡</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">廊香</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">Vitra</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">圖賓根</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">斯圖加特</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">科隆</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">烏特勒支</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">羊角村</div><div class="route-line"></div>
+  <div class="route-dot"></div><div class="route-name">阿姆斯特丹</div>
+</div>
+  <div class="day" id="day01">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">01</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/12 SAT</div>
+    <div class="day-city">桃園出發</div>
+    <div class="day-preview">CI0073 23:10 TPE → AMS</div>
+    <div class="day-tags"><span class="dtag dtag-train">🛫 出發</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">23:10</div><div class="ev-icon ei-trans">✈</div></div><div class="ev-body"><div class="ev-name">桃園 T1 出發 → 阿姆斯特丹 CI0073 <span class="badge b-ok">✓ 已訂</span></div><div class="ev-desc">訂位代號 FN6JXV · 手提 56×36×23cm，7kg · 飛行時間約 14 小時</div><div class="ev-links"><a class="el" href="https://www.china-airlines.com" target="_blank">訂位 FN6JXV</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day02">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">02</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/13 SUN</div>
+    <div class="day-city">抵達 → 鹿特丹</div>
+    <div class="day-preview">Markthal · 庫比住宅 · Trefpunt</div>
+    <div class="day-tags"><span class="dtag dtag-train">🚂 火車</span><span class="dtag dtag-arch">建築</span><span class="dtag dtag-stay">Numa</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="tbar"><div class="tbar-line"></div>🚂 史基浦 → 鹿特丹中央 Intercity 直達 · 約 25 分 · €5–7<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">07:40</div><div class="ev-icon ei-trans">🛬</div></div><div class="ev-body"><div class="ev-name">史基浦機場抵達 CI0073</div><div class="ev-desc">通關後往火車站，月台 D 搭 Intercity 3500 線直達鹿特丹，不需換車</div><div class="ev-meta"><span class="em"><span>🚂</span><span>Intercity 3500</span></span></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">12:00</div><div class="ev-icon ei-sight">🏛</div></div><div class="ev-body"><div class="ev-name">Markthal 中央市場</div><div class="ev-arch">MVRDV · 2014</div><div class="ev-desc">荷蘭最大室內市場，拱型大廳跨度 40m，天花板「豐饒之角」壁畫是全歐最大數位印刷作品</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費入場</span></span><span class="em"><span>🕐</span><span>10:00–20:00</span></span><span class="em"><span>⏱</span><span>45 分</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJf27if1wzxEcRw_fCZOEpock" target="_blank">📍 地圖</a></div></div></div>
+<div class="walkbar">─── 步行 3 分 ───</div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">🟡</div></div><div class="ev-body"><div class="ev-name">庫比住宅 Kubuswoningen</div><div class="ev-arch">Piet Blom · 1984</div><div class="ev-desc">54 棟立方體住宅傾斜 45° 堆疊，可入一間參觀，親身感受傾斜空間</div><div class="ev-meta"><span class="em"><span>💶</span><span>€3.50</span></span><span class="em"><span>🕐</span><span>10:00–17:00</span></span><span class="em"><span>⏱</span><span>30 分</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJme9_VUMzxEcRvqXxlJ200FY" target="_blank">📍 地圖</a></div></div></div>
+<div class="walkbar">─── 步行 5 分 ───</div>
+<div class="ev"><div class="ev-left"><div class="ev-time">傍晚</div><div class="ev-icon ei-sight">🌉</div></div><div class="ev-body"><div class="ev-name">伊拉斯謨斯橋 Erasmusbrug</div><div class="ev-arch">Ben van Berkel · 1996</div><div class="ev-desc">天鵝造型白色斜張橋，傍晚日落攝影必到，馬斯河岸步道視野極佳</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJW08dqWYzxEcRWFwW9N9RO_Q" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">15:00</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Numa Rotterdam Coolsingel <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Coolsingel 137 · 公寓式 · 住 2 晚</div><div class="ev-desc">步行：市中心 5 分，火車站 15 分 · 🅿 P+R Kralingse Zoom €3/日</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止 7/10</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJHWmhgNYzxEcRNPE7WMYRp90" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">晚上</div><div class="ev-icon ei-food">🌿</div></div><div class="ev-body"><div class="ev-name">Trefpunt Coffeeshop</div><div class="ev-arch">Botersloot 7 · 距 Numa 步行 10 分 · 10:00–00:00</div><div class="ev-desc">鹿特丹評價最好的 Coffee Shop，觀光客友善不坑人。買 Space Cake 帶回飯店吃。先吃四分之一，等 1.5–2 小時再評估</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>帶護照 · 18歲以上</span></span><span class="em"><span>💶</span><span>€5–12</span></span><span class="em"><span>🚫</span><span>不可跨國攜帶</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJZ9ESN1ozxEcRGKLqNMYf_uU" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day03">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">03</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/14 MON</div>
+    <div class="day-city">鹿特丹建築日</div>
+    <div class="day-preview">Depot Boijmans · 小孩堤防</div>
+    <div class="day-tags"><span class="dtag dtag-arch">建築</span><span class="dtag dtag-stay">Numa 第2晚</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">10:00</div><div class="ev-icon ei-sight">🏗</div></div><div class="ev-body"><div class="ev-name">Depot Boijmans Van Beuningen</div><div class="ev-arch">MVRDV · 2021</div><div class="ev-desc">全球第一個對外開放的博物館典藏庫。完全鏡面球體外牆，可反射整個城市天際線。15 萬件典藏可見</div><div class="ev-meta"><span class="em"><span>⏱</span><span>1.5 小時</span></span><span class="em"><span>💶</span><span>€20 / Museumkaart 免費</span></span><span class="em"><span>🕐</span><span>11:00–18:00 · 週五至20:00</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJO92km581xEcRVv_uxle7wow" target="_blank">📍 地圖</a> <a class="el" href="https://www.boijmans.nl/en/depot" target="_blank">官網</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚢 Waterbus 水上巴士 → 小孩堤防 · 約 40 分<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">14:00</div><div class="ev-icon ei-sight">🌬</div></div><div class="ev-body"><div class="ev-name">小孩堤防 Kinderdijk</div><div class="ev-desc">19 座風車群 UNESCO 世界遺產，可騎白色租借腳踏車穿梭風車間</div><div class="ev-meta"><span class="em"><span>⏱</span><span>2 小時</span></span><span class="em"><span>💶</span><span>€9–16</span></span><span class="em"><span>🕐</span><span>09:30–17:30</span></span><span class="em"><span>🅿</span><span>€10/日 Bezoekers</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJYwbhStYtxEcR3hPi1ymKuC4" target="_blank">📍 地圖</a> <a class="el" href="https://www.kinderdijk.nl/en/buy-tickets" target="_blank">訂票</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">住宿</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Numa Rotterdam Coolsingel（第2晚） <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Coolsingel 137</div><div class="ev-desc"></div><div class="ev-meta"></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJHWmhgNYzxEcRNPE7WMYRp90" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day04">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">04</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/15 TUE</div>
+    <div class="day-city">布魯日 → 根特</div>
+    <div class="day-preview">根特放行李 → 布魯日全天 · 傍晚回根特</div>
+    <div class="day-tags"><span class="dtag dtag-train">🚂 火車</span><span class="dtag dtag-arch">古城</span><span class="dtag dtag-stay">B&B Gent</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="tbar"><div class="tbar-line"></div>🚂 鹿特丹 → 根特 Gent-Sint-Pieters 約 1.5 小時<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">早上</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">B&B Hotel Gent Centrum — 放行李</div><div class="ev-arch">17 Voldersstraat</div><div class="ev-desc">先到根特住宿放行李（若房間未準備好可寄放行李），再輕裝搭火車去布魯日全天</div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJtwvuIURxw0cRoHM5icROTb0" target="_blank">📍 地圖</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚂 根特 → 布魯日 約 30 分<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">上午</div><div class="ev-icon ei-sight">🏰</div></div><div class="ev-body"><div class="ev-name">布魯日 Bruges 古城</div><div class="ev-desc">中世紀保存最完整的水鄉古城，整座城是 UNESCO 世界遺產。Belfort 鐘樓可俯瞰全城</div><div class="ev-meta"><span class="em"><span>⏱</span><span>半天</span></span><span class="em"><span>🏰</span><span>Belfort €16</span></span><span class="em"><span>🚢</span><span>運河遊船 €12</span></span></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-food">🍫</div></div><div class="ev-body"><div class="ev-name">De Proeverie</div><div class="ev-arch">布魯日最好的手工巧克力小店</div><div class="ev-desc">手工巧克力 + 熱可可，在地口碑最好</div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚂 布魯日 → 根特 約 30 分<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">傍晚</div><div class="ev-icon ei-sight">🌆</div></div><div class="ev-body"><div class="ev-name">Graslei & Korenlei 運河碼頭</div><div class="ev-desc">根特最美景色，中世紀倉庫和公會大廳沿河整排，傍晚燈光反射水面</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJXyp6K0Fxw0cRYH6jBK2jNVQ" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">🏰</div></div><div class="ev-body"><div class="ev-name">Gravensteen 伯爵城堡</div><div class="ev-desc">市中心護城河環繞的石造城堡，語音導覽有趣</div><div class="ev-meta"><span class="em"><span>💶</span><span>€14</span></span><span class="em"><span>🕐</span><span>10:00–18:00</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJcbDulEBxw0cRvttqH71W_y0" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-wc">⚽</div></div><div class="ev-body"><div class="ev-name">世界盃 準決賽①（隨緣）</div><div class="ev-desc">03:00 Dallas · 若比利時或荷蘭在，根特附近找酒吧隨緣</div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">15:00</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">B&B Hotel Gent Centrum <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">17 Voldersstraat · 押金 €50 現金 · 無停車</div><div class="ev-desc">步行：市中心 5 分，火車站 10 分</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止：入住當日 14:00</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJtwvuIURxw0cRoHM5icROTb0" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day05">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">05</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/16 WED</div>
+    <div class="day-city">布魯塞爾 → 亞琛</div>
+    <div class="day-preview">Grand Place · 亞琛大教堂 · 溫泉廊</div>
+    <div class="day-tags"><span class="dtag dtag-train">🚂 火車</span><span class="dtag dtag-arch">建築</span><span class="dtag dtag-stay">Aquis Grana</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="tbar"><div class="tbar-line"></div>🚂 根特 → 布魯塞爾南站 Midi 約 30 分<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-trans">🚂</div></div><div class="ev-body"><div class="ev-name">布魯塞爾 Brussels 換車</div><div class="ev-arch">Brussels-Midi 南站 · 換車等待約 30–60 分</div><div class="ev-desc">Grand Place 距南站步行 20 分，可快速繞一圈再回來換車</div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ8fEURn_Ew0cRts_ij101PLA" target="_blank">📍 Grand Place</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚂 布魯塞爾 → 列日 Liège 約 1 小時 → 換車 → 亞琛 約 30 分 · 總計約 2 小時 · 比直達 Thalys 便宜<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">下午</div><div class="ev-icon ei-sight">⛪</div></div><div class="ev-body"><div class="ev-name">亞琛大教堂 Aachener Dom</div><div class="ev-arch">查理曼大帝委建 · 796年</div><div class="ev-desc">歐洲第一批 UNESCO 世遺。比科隆大教堂古老 452 年，拜占庭金色馬賽克圓頂。查理曼大帝長眠於此</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費入場</span></span><span class="em"><span>💶</span><span>寶物館 €5</span></span><span class="em"><span>🕐</span><span>07:00–19:00</span></span><span class="em"><span>⏱</span><span>45 分</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ-4fwhHyZwEcRw4hn5SMLczg" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">♨️</div></div><div class="ev-body"><div class="ev-name">Elisenbrunnen 溫泉廊</div><div class="ev-arch">1827年 · 新古典廊柱</div><div class="ev-desc">1827 年新古典廊柱，內有天然溫泉泉眼，免費觸摸熱水（47°C，硫磺氣味，勿飲用）</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJhWxVEmOZwEcRLl2Gx1p4s44" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-wc">⚽</div></div><div class="ev-body"><div class="ev-name">世界盃 準決賽②（隨緣）</div><div class="ev-desc">03:00 Atlanta · 若德國在，亞琛有球迷酒吧 · 凌晨隨緣</div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">15:00</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Aquis Grana 亞琛城市酒店 <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Büchel 32 · 步行：大教堂 5 分，市中心 3 分</div><div class="ev-desc">🅿 停車 €20/日（飯店地下）</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止：入住當日 18:00</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ79YRp2SZwEcRKc7rTcAg-3Y" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day06">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">06</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/17 FRI</div>
+    <div class="day-city">🏎 F1 比利時 GP · 取車</div>
+    <div class="day-preview">亞琛取車 · Spa FP1+FP2</div>
+    <div class="day-tags"><span class="dtag dtag-f1">🏎 F1</span><span class="dtag dtag-drive">取車</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">09:00</div><div class="ev-icon ei-trans">🔑</div></div><div class="ev-body"><div class="ev-name">亞琛 AVIS 取車 <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Julicher Strasse · 訂單 750441465 · VW T-Roc SUV</div><div class="ev-desc">帶護照＋台灣駕照＋國際駕照</div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJeantIkaZwEcRgN2z3RqjIVM" target="_blank">📍 AVIS</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 亞琛 → Spa-Francorchamps 約 1 小時 (95km) · 比利時高速免費 · 速限 120<div class="tbar-line"></div></div>
+<div class="f1box"><div class="f1box-title">🏎 F1 比利時 GP — Bronze Zone（週五，2 人）</div><div class="f1box-row">訂單：<strong>VEIN/2026/08387</strong> · €240 · Green Area 停車含票</div><div class="f1box-row"><strong>FP1</strong> 13:30–14:30 &nbsp;|&nbsp; <strong>FP2</strong> 17:00–18:00</div><div class="f1box-row">🅿 停車：Green Area 依路標，步行入場 · FP2 後等 30 分再走，散場塞車</div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 Spa → 羅德爾 約 1 小時<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">19:00前</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Manoir Kasselslay 羅德爾 <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">9 Hënnescht Duerf, Roder</div><div class="ev-desc">入住 15:00–19:00，超時請提前電聯</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止 7/15</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJo36G7M_3v0cRoVPrpd_9m8c" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day07">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">07</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/18 SAT</div>
+    <div class="day-city">盧森堡市</div>
+    <div class="day-preview">Bock 要塞 · Pont Adolphe · 峽谷步道</div>
+    <div class="day-tags"><span class="dtag dtag-drive">🚗 自駕</span><span class="dtag dtag-arch">古城</span><span class="dtag dtag-stay">Coque</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="tbar"><div class="tbar-line"></div>🚗 羅德爾 → 盧森堡市 約 1 小時 (65km) · 盧森堡高速免費 · 速限 130<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">10:00</div><div class="ev-icon ei-sight">🏰</div></div><div class="ev-body"><div class="ev-name">Bock 要塞地下隧道 Casemates</div><div class="ev-arch">中世紀防禦工事 · UNESCO</div><div class="ev-desc">深藏峭壁之下的地下防禦通道，可深入地底探索。隧道開口俯瞰整個峽谷和古城</div><div class="ev-meta"><span class="em"><span>💶</span><span>€10/人</span></span><span class="em"><span>🕐</span><span>09:45–17:00</span></span><span class="em"><span>⏱</span><span>1 小時</span></span><span class="em"><span>🅿</span><span>Parking Glacis €1/小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJNW7n4zJPlUcRc95AAJEMmcY" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">🌉</div></div><div class="ev-body"><div class="ev-name">Pont Adolphe 大橋</div><div class="ev-arch">新藝術風格 · 1903年</div><div class="ev-desc">跨越 Pétrusse 峽谷的石造拱橋，從橋上可同時看到古城、峽谷和現代建築的奇妙對比</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ2-f5X9RIlUcRznEwz2XUlf0" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">🚶</div></div><div class="ev-body"><div class="ev-name">Chemin de la Corniche 峽谷步道</div><div class="ev-desc">號稱「歐洲最美陽台」，沿著峭壁的步道可俯瞰 Alzette 峽谷和石砌城牆</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費</span></span><span class="em"><span>⏱</span><span>30 分</span></span></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">15:00</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Coque Hotel 盧森堡市 <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">2 rue Léon Hengen · 含早餐</div><div class="ev-desc">步行：舊城 15 分 · 🅿 飯店停車</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止 7/16 · 週六接待 07:30–20:00</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJAfqSzEBPlUcRgFl7U-fm04E" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day08">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">08</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/19 SUN</div>
+    <div class="day-city">史特拉斯堡</div>
+    <div class="day-preview">大教堂 · 小法國區</div>
+    <div class="day-tags"><span class="dtag dtag-drive">🚗 自駕</span><span class="dtag dtag-arch">建築</span><span class="dtag dtag-stay">Hotel des Vosges</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="tbar"><div class="tbar-line"></div>🚗 盧森堡 → 史特拉斯堡 約 1.5 小時 (170km) · 法國高速需繳費 A4 約 €8<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">上午</div><div class="ev-icon ei-sight">⛪</div></div><div class="ev-body"><div class="ev-name">史特拉斯堡大教堂 Notre-Dame</div><div class="ev-arch">哥德式 · 1439年完工</div><div class="ev-desc">曾是全球最高建築（142m），建造歷時 400 年。玫瑰窗彩色玻璃 + 天文鐘</div><div class="ev-meta"><span class="em"><span>🆓</span><span>入場免費</span></span><span class="em"><span>💶</span><span>天文鐘 €3</span></span><span class="em"><span>🕐</span><span>08:30–17:30</span></span><span class="em"><span>⏱</span><span>45 分</span></span><span class="em"><span>🅿</span><span>P Cathédrale €2.5/小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJQ4g5U1LIlkcROCde9XcnFec" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">下午</div><div class="ev-icon ei-sight">🏘</div></div><div class="ev-body"><div class="ev-name">小法國區 La Petite France</div><div class="ev-desc">史特拉斯堡最美角落，彩色半木造房屋倒映運河，隨便走隨便拍都美</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費</span></span><span class="em"><span>📸</span><span>底片推薦：Rue du Bain-aux-Plantes 對稱構圖</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJTYqPzT_JlkcRtHODV_eAQ2E" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-wc">⚽</div></div><div class="ev-body"><div class="ev-name">世界盃 三四名（隨緣）</div><div class="ev-desc">05:00 Miami · 清晨 · 隨緣</div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">16:00</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Hotel des Vosges BW Premier <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">3 Place De La Gare · 火車站正旁</div><div class="ev-desc">步行：大教堂 10 分，小法國區 8 分 · 🅿 P Sainte-Aurélie €2/小時</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止 7/18 16:00</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJebse7-PJlkcRbJqXSdyts-U" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day09">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">09</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/20 MON</div>
+    <div class="day-city">科爾馬 → 廊香教堂</div>
+    <div class="day-preview">霍爾移動城堡 · Le Corbusier 傑作</div>
+    <div class="day-tags"><span class="dtag dtag-drive">🚗 自駕</span><span class="dtag dtag-arch">⭐⭐ 建築重點</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="tbar"><div class="tbar-line"></div>🚗 史特拉斯堡 → 科爾馬 約 1 小時 (75km) · A35 免費<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">09:00</div><div class="ev-icon ei-sight">🎨</div></div><div class="ev-body"><div class="ev-name">科爾馬 Colmar — Maison Pfister</div><div class="ev-arch">文藝復興半木造 · 1537年</div><div class="ev-desc">科爾馬最具代表性建築，轉角圓塔+木雕廊台，是宮崎駿《霍爾的移動城堡》靈感場景之一。步行可達小威尼斯水道區</div><div class="ev-meta"><span class="em"><span>🆓</span><span>外觀免費</span></span><span class="em"><span>⏱</span><span>2–3 小時含周邊</span></span><span class="em"><span>🅿</span><span>P Rapp €2/小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJlROCTH5lkUcRGWWWsjuBQXY" target="_blank">📍 地圖</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 科爾馬 → 廊香 約 1 小時 (50km) · 山路注意<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">14:00</div><div class="ev-icon ei-sight">⛪</div></div><div class="ev-body"><div class="ev-name">廊香教堂 Notre-Dame du Haut</div><div class="ev-arch">Le Corbusier · 1955</div><div class="ev-desc">粗獷主義最優雅傑作。白色曲面牆、船帆屋頂、大小不一的彩色光孔。進入時整個空間的光與空氣感令人震撼</div><div class="ev-meta"><span class="em"><span>💶</span><span>€8–12</span></span><span class="em"><span>🕐</span><span>09:30–19:00</span></span><span class="em"><span>⏱</span><span>1 小時</span></span><span class="em"><span>🅿</span><span>廊香教堂停車場免費</span></span><span class="em"><span>⚠️</span><span>建議提前線上預約</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJPcNmL3FGkkcRXCI2lxCBoTs" target="_blank">📍 地圖</a> <a class="el" href="https://www.collinenotredameduhaut.com" target="_blank">預約</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-wc">⚽</div></div><div class="ev-body"><div class="ev-name">世界盃 🏆 決賽（隨緣）</div><div class="ev-desc">03:00 New York · 廊香附近找酒吧或飯店電視看 · 凌晨隨緣</div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">晚上</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">廊香 / 貝爾福民宿 <span class="badge b-pend">待訂</span></div><div class="ev-arch">待訂</div><div class="ev-desc">搜尋 Ronchamp / Belfort B&B</div><div class="ev-meta"></div><div class="ev-links"></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day10">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">10</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/21 TUE</div>
+    <div class="day-city">Vitra Campus ⭐⭐</div>
+    <div class="day-preview">建築導覽 11:00 · Gehry · Hadid · Ando · SANAA</div>
+    <div class="day-tags"><span class="dtag dtag-drive">🚗 自駕</span><span class="dtag dtag-arch">⭐⭐ 建築重點</span><span class="dtag dtag-stay">Basel</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="tbar"><div class="tbar-line"></div>🚗 廊香 → Vitra Campus (Weil am Rhein) 約 1.5 小時 (120km)<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">11:00</div><div class="ev-icon ei-sight">🏭</div></div><div class="ev-body"><div class="ev-name">Vitra 建築導覽 Architecture Tour 2hr</div><div class="ev-arch">每日僅 11:00 一場</div><div class="ev-desc">Zaha Hadid（消防站，1993，她第一個建成的建築）、Frank Gehry（設計博物館）、Tadao Ando（清水混凝土會議館）、SANAA（工具存放庫，低矮玻璃圓形建築）一次看完</div><div class="ev-meta"><span class="em"><span>💶</span><span>套票約 €35/人</span></span><span class="em"><span>⏱</span><span>2 小時導覽</span></span><span class="em"><span>🕐</span><span>10:00–18:00</span></span><span class="em"><span>⚠️</span><span>每日僅一場，售罄不補</span></span><span class="em"><span>🅿</span><span>VitraHaus 停車場免費</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJk5W6vSK6kUcRWdGKmiGLSA0" target="_blank">📍 地圖</a> <a class="el" href="https://design-museum.reservix.de" target="_blank">🎫 訂票</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">下午</div><div class="ev-icon ei-sight">🏬</div></div><div class="ev-body"><div class="ev-name">Vitra Design Museum + VitraHaus 商店</div><div class="ev-desc">導覽後繼續逛設計博物館典藏，VitraHaus 商店有限定設計小物、書籍、文具</div><div class="ev-meta"><span class="em"><span>🕐</span><span>10:00–18:00</span></span></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">15:00</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Holiday Inn Express Basel-Allschwil <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Hegenheimermattweg 179 · 含早餐</div><div class="ev-desc">🅿 停車 CHF 19/日 · ⚠️ 確認走德國 B3 路線，避開瑞士高速</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止 7/19</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJO7wLViK5kUcRtzvkft8LhYc" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day11">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">11</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/22 WED</div>
+    <div class="day-city">圖賓根 → 斯圖加特</div>
+    <div class="day-preview">Marktplatz · Neckarbrücke · 內卡河岸散步</div>
+    <div class="day-tags"><span class="dtag dtag-drive">🚗 自駕</span><span class="dtag dtag-arch">古城</span><span class="dtag dtag-stay">Adina 入住</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="tbar"><div class="tbar-line"></div>🚗 巴賽爾 → 圖賓根 約 1.5 小時 (130km) · 德國高速免費 · 部分無限速<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">10:30</div><div class="ev-icon ei-sight">🏘</div></div><div class="ev-body"><div class="ev-name">Marktplatz 市集廣場</div><div class="ev-arch">中世紀 · 圖賓根老城核心</div><div class="ev-desc">色彩繽紛的半木造建築圍繞廣場，市政廳有文藝復興風格彩繪，大學城悠閒氛圍</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費</span></span><span class="em"><span>⏱</span><span>45 分</span></span><span class="em"><span>🅿</span><span>Parkhaus Altstadt-Mitte €1.5/小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJddeGZZz7mUcR4BgD0CgliII" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">🌉</div></div><div class="ev-body"><div class="ev-name">Neckarbrücke Eberhardsbrücke</div><div class="ev-arch">內卡河老橋 · 圖賓根最美角度</div><div class="ev-desc">從橋上俯瞰內卡河兩岸半木造老城，像明信片的構圖。橋上有花卉裝飾，河面常有平底船穿梭</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費</span></span><span class="em"><span>📸</span><span>底片推薦角度</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJeyAjLtL6mUcRZOKt1DwUmMY" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">⛪</div></div><div class="ev-body"><div class="ev-name">Stiftskirche 修道院教堂</div><div class="ev-arch">哥德式 · 1470–1499年</div><div class="ev-desc">廣場旁哥德式教堂，內有符騰堡王室墓室 14 座石棺，登塔俯瞰老城全景</div><div class="ev-meta"><span class="em"><span>💶</span><span>塔 €2</span></span><span class="em"><span>🕐</span><span>09:00–16:00</span></span><span class="em"><span>⏱</span><span>45 分</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJCyMYkNP6mUcRmHKB0pcNjtA" target="_blank">📍 地圖</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 圖賓根 → 斯圖加特 約 45 分 (60km)<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">15:30</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Adina Apartment Hotel Stuttgart <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Kopenhagener Str. 3 · 附廚房洗衣機 · 住 2 晚</div><div class="ev-desc">步行：市中心 12 分，火車站 8 分 · 🅿 飯店停車 €30/日 · 押金 €200（信用卡）</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止 7/20</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJKVna0c3bmUcRrHwyIkDcbT8" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day12">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">12</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/23 THU</div>
+    <div class="day-city">斯圖加特建築日</div>
+    <div class="day-preview">賓士博物館 · 白院聚落</div>
+    <div class="day-tags"><span class="dtag dtag-arch">建築</span><span class="dtag dtag-stay">Adina 第2晚</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">10:00</div><div class="ev-icon ei-sight">🚗</div></div><div class="ev-body"><div class="ev-name">賓士博物館 Mercedes-Benz Museum</div><div class="ev-arch">UN Studio · 2006</div><div class="ev-desc">雙螺旋結構，從頂層沿坡道往下參觀汽車發展史，建築本身是最大亮點</div><div class="ev-meta"><span class="em"><span>💶</span><span>€12/人</span></span><span class="em"><span>🕐</span><span>09:00–18:00</span></span><span class="em"><span>⏱</span><span>1.5 小時</span></span><span class="em"><span>🅿</span><span>博物館停車 €2/小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJkd8d2v7EmUcRlEv7v_H0ZsE" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">14:00</div><div class="ev-icon ei-sight">🏛</div></div><div class="ev-body"><div class="ev-name">白院聚落 Weissenhof Estate</div><div class="ev-arch">Le Corbusier · Mies等 · 1927</div><div class="ev-desc">1927 年現代建築展覽留下的建築群，Le Corbusier「白色建築宣言」和密斯·凡德羅作品在此。現代建築的起點</div><div class="ev-meta"><span class="em"><span>💶</span><span>博物館 €5</span></span><span class="em"><span>🕐</span><span>11:00–17:00 · 週二休</span></span><span class="em"><span>⏱</span><span>1 小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJBWpBedfamUcR4UuGeww8oD4" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">住宿</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Adina Stuttgart（第2晚） <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Kopenhagener Str. 3</div><div class="ev-desc"></div><div class="ev-meta"></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJKVna0c3bmUcRrHwyIkDcbT8" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day13">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">13</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/24 FRI</div>
+    <div class="day-city">保時捷 · 海德堡 → 科隆</div>
+    <div class="day-preview"></div>
+    <div class="day-tags"><span class="dtag dtag-drive">🚗 自駕</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">09:30</div><div class="ev-icon ei-sight">🏎</div></div><div class="ev-body"><div class="ev-name">保時捷博物館 Porsche Museum</div><div class="ev-arch">Delugan Meissl · 2009</div><div class="ev-desc">懸浮感白色建築，像停在空中的跑車車體，展示保時捷百年歷史</div><div class="ev-meta"><span class="em"><span>💶</span><span>€10/人</span></span><span class="em"><span>🕐</span><span>09:00–18:00</span></span><span class="em"><span>⏱</span><span>1 小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ4dnOMofamUcRh3lftY5kgDw" target="_blank">📍 地圖</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 斯圖加特 → 海德堡 約 1 小時 (80km)<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">13:00</div><div class="ev-icon ei-sight">🏰</div></div><div class="ev-body"><div class="ev-name">海德堡 Heidelberg</div><div class="ev-desc">德國最美古城，內卡河畔廢墟城堡 + 巴洛克老城。搭纜車上堡，俯瞰老橋和河谷</div><div class="ev-meta"><span class="em"><span>💶</span><span>城堡 €9</span></span><span class="em"><span>⏱</span><span>2 小時</span></span><span class="em"><span>🅿</span><span>P Parkhaus am Bismarckplatz €2/小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJk9tDygDBl0cR6n7pSTYuZ20" target="_blank">📍 地圖</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 海德堡 → 科隆 約 2 小時 (180km)<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">15:00</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Lindner Hotel Cologne City Plaza <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Magnusstr. 20 · 含早餐</div><div class="ev-desc">步行：大教堂 10 分，萊茵河 8 分 · 🅿 Parkhaus Rheinauhafenkran €15–25/日</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止 7/21</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ1bqcuQclv0cRxqIUcbIkjS0" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day14">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">14</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/25 SAT</div>
+    <div class="day-city">科隆 → 亞琛還車 → 烏特勒支</div>
+    <div class="day-preview">科隆大教堂 · Kolumba · ICE 高鐵</div>
+    <div class="day-tags"><span class="dtag dtag-arch">⭐⭐ 建築</span><span class="dtag dtag-train">ICE 高鐵</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">上午</div><div class="ev-icon ei-sight">⛪</div></div><div class="ev-body"><div class="ev-name">科隆大教堂 Kölner Dom</div><div class="ev-arch">哥德式 · 1248年開工 · 1880年完工</div><div class="ev-desc">建造 632 年，哥德式建築巔峰，UNESCO 世遺。157m 雙塔俯瞰萊茵河</div><div class="ev-meta"><span class="em"><span>🆓</span><span>入場免費</span></span><span class="em"><span>💶</span><span>塔樓 €6</span></span><span class="em"><span>🕐</span><span>06:00–21:00</span></span><span class="em"><span>⏱</span><span>45 分</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJLz2cNqUlv0cRxqnjljiR7Ck" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">🏛</div></div><div class="ev-body"><div class="ev-name">Kolumba 藝術博物館</div><div class="ev-arch">Peter Zumthor · 2007</div><div class="ev-desc">建在二戰廢墟教堂上，Zumthor 在舊牆孔洞砌上灰磚讓光線滲入室內，光感極致，底片寬容度在這裡最有用</div><div class="ev-meta"><span class="em"><span>💶</span><span>€8</span></span><span class="em"><span>🕐</span><span>12:00–17:00 · 週二休</span></span><span class="em"><span>⏱</span><span>1 小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJlYtXVK4lv0cRNgWmALxVvkc" target="_blank">📍 地圖</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 科隆 → 亞琛 約 1 小時 (75km) · 德國高速免費<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">14:00</div><div class="ev-icon ei-trans">🔑</div></div><div class="ev-body"><div class="ev-name">亞琛 AVIS 還車 <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">訂單 750441465</div><div class="ev-desc">帶護照＋台灣駕照＋國際駕照</div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJeantIkaZwEcRgN2z3RqjIVM" target="_blank">📍 AVIS</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚂 亞琛 → 科隆 Köln Hbf 約 30 分 → 換 ICE → 烏特勒支 約 1.5 小時 · 總計 2.5 小時 · bahn.de 提前訂<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">晚上</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Hampton by Hilton Utrecht Centraal <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Boven Catharijnepoort 4 · 含早餐 · 住 2 晚</div><div class="ev-desc">步行：Centraal 火車站直連 · 🅿 飯店無停車（已還車）</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止 7/20 · 00:00–06:00 走 Catharijne Esplanade 44 夜間入口</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ_xxGFFZvxkcRb2gHOiFrBtM" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day15">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">15</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/26 SUN</div>
+    <div class="day-city">烏特勒支 · Rietveld House</div>
+    <div class="day-preview">De Stijl 世界遺產 · 運河步道</div>
+    <div class="day-tags"><span class="dtag dtag-arch">⭐⭐ 建築</span><span class="dtag dtag-stay">Hampton 第2晚</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">時段</div><div class="ev-icon ei-sight">🏠</div></div><div class="ev-body"><div class="ev-name">Rietveld Schröder House ⭐⭐</div><div class="ev-arch">Gerrit Rietveld · 1924</div><div class="ev-desc">De Stijl 建築宣言，蒙德里安三原色立體化。牆壁可推開移動，一個空間變成多個房間。UNESCO 世遺，每時段限少數人</div><div class="ev-meta"><span class="em"><span>💶</span><span>€19/人</span></span><span class="em"><span>🕐</span><span>11:00–17:00 · 週一休</span></span><span class="em"><span>⏱</span><span>1 小時</span></span><span class="em"><span>⚠️</span><span>必須提前預約！常售罄</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ7_vH9qVoxkcRCe6nL5FRYJQ" target="_blank">📍 地圖</a> <a class="el" href="https://www.rietveldschroderhuis.nl/en/visit/tickets-tijden-en-prijzen" target="_blank">⚠️ 預約</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">下午</div><div class="ev-icon ei-sight">🚶</div></div><div class="ev-body"><div class="ev-name">Oudegracht 運河下層步道</div><div class="ev-arch">烏特勒支最獨特的城市風景</div><div class="ev-desc">烏特勒支特有的雙層運河，下層倉庫改建成咖啡廳，步道在水面高度，坐在水邊喝咖啡是最烏特勒支的午後</div><div class="ev-meta"><span class="em"><span>🆓</span><span>步道免費</span></span><span class="em"><span>⏱</span><span>1–2 小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJC7Lm5FpvxkcR_GDbpi-FzVk" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-food">☕</div></div><div class="ev-body"><div class="ev-name">Keen Coffee</div><div class="ev-arch">Oudegracht 286 · 城市指標精品烘豆</div><div class="ev-desc">烏特勒支最受推崇的自家烘豆咖啡廳，就在運河旁，Rietveld House 看完順路</div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">住宿</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Hampton by Hilton Utrecht（第2晚） <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Boven Catharijnepoort 4</div><div class="ev-desc"></div><div class="ev-meta"></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ_xxGFFZvxkcRb2gHOiFrBtM" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day16">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">16</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/27 MON</div>
+    <div class="day-city">取車 → Kröller-Müller → 羊角村</div>
+    <div class="day-preview">梵谷收藏 · 雕塑公園 · 水鄉入住</div>
+    <div class="day-tags"><span class="dtag dtag-drive">🚗 取車</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">09:30</div><div class="ev-icon ei-trans">🔑</div></div><div class="ev-body"><div class="ev-name">烏特勒支 AVIS 取車 <span class="badge b-pend">待訂</span></div><div class="ev-arch">Amsterdamsestraatweg · Toyota Yaris · TWD 5,796</div><div class="ev-desc">帶護照＋台灣駕照＋國際駕照</div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJG7T_v6VvxkcRGtN1zbB9cb0" target="_blank">📍 AVIS</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 烏特勒支 → Kröller-Müller Museum 約 1.5 小時 · 國家公園限速 30<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">11:00</div><div class="ev-icon ei-sight">🎨</div></div><div class="ev-body"><div class="ev-name">Kröller-Müller Museum + 雕塑公園 ⭐</div><div class="ev-desc">梵谷第二大收藏（90 幅）。25 公頃戶外雕塑公園，騎免費白色腳踏車穿梭園內</div><div class="ev-meta"><span class="em"><span>💶</span><span>博物館 Museumkaart 免費</span></span><span class="em"><span>💶</span><span>公園 €13.85 + 開車 €9.80</span></span><span class="em"><span>🕐</span><span>10:00–17:00 · 週二休</span></span><span class="em"><span>⏱</span><span>3 小時</span></span></div><div class="ev-links"><a class="el" href="https://krollermuller.nl/en/buy-your-ticket" target="_blank">🎫 訂票</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 Kröller-Müller → 羊角村 約 1.5 小時<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">15:00</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">Giethoorn Old Art Hotel <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Ds.T.O. Hylkemaweg 7 · 水景雙床間</div><div class="ev-desc">🅿 P1 Giethoorn 官方停車場 €5–10/日</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>取消截止 7/19 · 退房 08:00–10:30</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ8fkLoChuyEcRdkfFOqoXy6s" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day17">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">17</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/28 TUE</div>
+    <div class="day-city">羊角村 → Afsluitdijk → 阿爾克馬爾</div>
+    <div class="day-preview">晨間漫遊 · 大堤 · 🧀 起司夜市 19:00</div>
+    <div class="day-tags"><span class="dtag dtag-drive">🚗 自駕</span><span class="dtag dtag-stay">逸居入住</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">早上</div><div class="ev-icon ei-sight">🛶</div></div><div class="ev-body"><div class="ev-name">羊角村晨間漫遊</div><div class="ev-desc">早晨遊客少、光線美。租船（€15–20/小時）或步道穿越蘆葦叢</div><div class="ev-meta"><span class="em"><span>⏱</span><span>2 小時</span></span><span class="em"><span>🛶</span><span>租船 €15–20/hr</span></span></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 羊角村 → Afsluitdijk 約 1 小時<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">11:00</div><div class="ev-icon ei-sight">🌊</div></div><div class="ev-body"><div class="ev-name">Monument op de Afsluitdijk</div><div class="ev-arch">艾瑟湖大堤 · 1932年</div><div class="ev-desc">全長 32 公里的海堤連接荷蘭兩省，開車穿越兩側都是海。紀念館展示荷蘭治水工程奇觀</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費</span></span><span class="em"><span>⏱</span><span>30 分</span></span><span class="em"><span>🅿</span><span>免費停車場</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJeQD7JJjJyEcRHwvJkMJdKNQ" target="_blank">📍 地圖</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 Afsluitdijk → 阿爾克馬爾 約 45 分<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">15:00</div><div class="ev-icon ei-sight">🧀</div></div><div class="ev-body"><div class="ev-name">阿爾克馬爾古城漫步</div><div class="ev-desc">Waagplein 廣場、起司博物館、中世紀老街</div><div class="ev-meta"><span class="em"><span>💶</span><span>起司博物館 €8</span></span><span class="em"><span>🅿</span><span>P+R Overstad 免費</span></span></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">19:00</div><div class="ev-icon ei-sight">🧀</div></div><div class="ev-body"><div class="ev-name">🧀 阿爾克馬爾起司夜市 Kaasmarkt ⭐</div><div class="ev-arch">Waagplein 廣場 · 7–8月每週二 19:00–21:00</div><div class="ev-desc">傳統搬運工穿古裝抬起司、磅秤交易，可現場試吃購買。免費入場</div><div class="ev-meta"><span class="em"><span>🆓</span><span>免費入場</span></span></div><div class="ev-links"><a class="el" href="https://www.kaasmarkt.nl/en-gb" target="_blank">活動官網</a></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚗 阿爾克馬爾 → 阿姆斯特丹西港 約 40 分<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">21:30</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">逸居酒店 Amsterdam <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Tempelhofstraat 2, 西港 · 附廚房 · 住 3 晚</div><div class="ev-desc">步行：火車站 10 分 · 🅿 停車 €25/日 · 押金 €100（退房後 14 天退）</div><div class="ev-meta"><span class="em"><span>⚠️</span><span>不可取消</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJX1rTlu8JxkcRGsV8-a4oKMI" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day18">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">18</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/29 WED</div>
+    <div class="day-city">還車 → 梵谷美術館</div>
+    <div class="day-preview">輕鬆半天 · Jordan 區漫步</div>
+    <div class="day-tags"><span class="dtag dtag-stay">逸居 第2晚</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">09:30</div><div class="ev-icon ei-trans">🔑</div></div><div class="ev-body"><div class="ev-name">阿姆斯特丹 AVIS 還車 <span class="badge b-pend">待訂</span></div><div class="ev-arch">Amsterdam Overtoom</div><div class="ev-desc">距逸居酒店約 3km</div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJNZx-y-MJxkcR4dBvNpAyDAo" target="_blank">📍 AVIS</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">🎨</div></div><div class="ev-body"><div class="ev-name">梵谷美術館 Van Gogh Museum ⭐</div><div class="ev-desc">世界最大梵谷收藏，向日葵、鳶尾花、麥田群鴉親眼目睹。筆觸厚度在實體前才感受得到</div><div class="ev-meta"><span class="em"><span>💶</span><span>€25/人</span></span><span class="em"><span>⚠️</span><span>完全線上購票，無現場售票</span></span><span class="em"><span>🕐</span><span>09:00–18:00</span></span><span class="em"><span>⏱</span><span>1.5 小時</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJX1rTlu8JxkcRGsV8-a4oKMI" target="_blank">📍 地圖</a> <a class="el" href="https://tickets.vangoghmuseum.com" target="_blank">⚠️ 立即訂票</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">下午</div><div class="ev-icon ei-sight">🏘</div></div><div class="ev-body"><div class="ev-name">Jordan 區運河漫步</div><div class="ev-arch">阿姆斯特丹最有生活感的街區</div><div class="ev-desc">Anne Frank House、西教堂、Brouwersgracht 最美運河，悠閒半天</div><div class="ev-meta"><span class="em"><span>🆓</span><span>運河免費</span></span><span class="em"><span>💶</span><span>Anne Frank €16</span></span></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">住宿</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">逸居酒店（第2晚） <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Tempelhofstraat 2, 西港</div><div class="ev-desc">⚠️ 不可取消</div><div class="ev-meta"></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJX1rTlu8JxkcRGsV8-a4oKMI" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day19">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">19</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/30 THU</div>
+    <div class="day-city">阿姆斯特丹 · 贊丹</div>
+    <div class="day-preview">🚂 一早贊丹 · 辛格花市 · 自由下午</div>
+    <div class="day-tags"><span class="dtag dtag-train">🚂 火車</span><span class="dtag dtag-stay">逸居 第3晚</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="tbar"><div class="tbar-line"></div>🚂 08:00 阿姆斯特丹中央 → 贊丹 約 20 分（早去人少）<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">08:30</div><div class="ev-icon ei-sight">🏗</div></div><div class="ev-body"><div class="ev-name">贊丹 Inntel Hotel（樂高屋）</div><div class="ev-arch">WAM Architecten · 2010 · 一早人少</div><div class="ev-desc">傳統荷蘭木屋堆疊的超現實建築，外觀免費拍攝</div><div class="ev-meta"><span class="em"><span>🆓</span><span>外觀免費</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJJdYg01MMxkcRn7gRhM2DqRE" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">🌬</div></div><div class="ev-body"><div class="ev-name">Zaanse Schans 風車村</div><div class="ev-desc">傳統工作風車群，可入內參觀磨坊，早上人少最好</div><div class="ev-meta"><span class="em"><span>🆓</span><span>入園免費</span></span><span class="em"><span>⏱</span><span>1.5 小時</span></span></div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚂 贊丹 → 阿姆斯特丹 約 20 分<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-sight">🌷</div></div><div class="ev-body"><div class="ev-name">辛格花市 Bloemenmarkt</div><div class="ev-arch">全球唯一水上花市</div><div class="ev-desc">鬱金香球根、荷蘭特色紀念品</div><div class="ev-meta"><span class="em"><span>🕐</span><span>09:00–17:30</span></span><span class="em"><span>🆓</span><span>參觀免費</span></span></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ_RcIoOoJxkcRu8vfdsqujjA" target="_blank">📍 地圖</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">住宿</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">逸居酒店（第3晚） <span class="badge b-ok">✓ 已訂</span></div><div class="ev-arch">Tempelhofstraat 2, 西港</div><div class="ev-desc">⚠️ 不可取消</div><div class="ev-meta"></div><div class="ev-links"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJX1rTlu8JxkcRGsV8-a4oKMI" target="_blank">📍 地圖</a></div></div></div>
+</div>
+</div>
+
+<div class="day" id="day20">
+<div class="day-head" onclick="toggleDay(this)">
+  <div class="day-num-wrap"><div class="day-num">20</div></div>
+  <div class="day-divider"></div>
+  <div class="day-info">
+    <div class="day-date">07/31 FRI</div>
+    <div class="day-city">退房 → 返航桃園</div>
+    <div class="day-preview">08:00 退房 · Sloterdijk → 史基浦 · CI0074</div>
+    <div class="day-tags"><span class="dtag dtag-train">🚂 返程</span></div>
+  </div>
+  <div class="day-chev">›</div>
+</div>
+<div class="day-events">
+<div class="ev"><div class="ev-left"><div class="ev-time">08:00</div><div class="ev-icon ei-stay">🏠</div></div><div class="ev-body"><div class="ev-name">逸居酒店退房</div><div class="ev-desc">押金 €100 約 14 天後退回信用卡</div></div></div>
+<div class="tbar"><div class="tbar-line"></div>🚂 Sloterdijk 火車站 → 史基浦機場 約 15 分<div class="tbar-line"></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-icon ei-trans">✈</div></div><div class="ev-body"><div class="ev-name">史基浦出發 CI0074 <span class="badge b-ok">✓ 已訂</span></div><div class="ev-desc">建議 08:00 前到機場 · 手提 56×36×23cm</div><div class="ev-links"><a class="el" href="https://www.china-airlines.com" target="_blank">訂位 FN6JXV</a></div></div></div>
+<div class="ev"><div class="ev-left"><div class="ev-time">08/01 06:15</div><div class="ev-icon ei-trans">🛬</div></div><div class="ev-body"><div class="ev-name">桃園 T1 抵達 · 平安回家 🏠</div></div></div>
+</div>
+</div>
+
+</section>
+<section id="food" class="section">
+  <div class="sec-head">
+    <div class="sec-over">Eat & Bring Home</div>
+    <div class="sec-title">美食 · 伴手禮</div>
+  </div>
+  <div class="sub-tabs">
+    <button class="sub-tab on" onclick="showSub('food-rest',this)">🍽 正餐</button>
+    <button class="sub-tab" onclick="showSub('food-cafe',this)">☕ 咖啡廳</button>
+    <button class="sub-tab" onclick="showSub('food-sov',this)">🛍 伴手禮</button>
+  </div>
+  <div id="food-rest" class="sub-panel on">
+<div class="city-block">
+  <div class="city-lbl">Rotterdam</div>
+  <div class="city-sub">07/13–14</div>
+  <div class="food-item"><div class="food-name">Rotonde <span class="food-badge fb-bib">Bib ⭐</span></div><div class="food-detail">Goudsesingel 230 · €35–50 · 全素創意料理，柴火烤爐</div><div class="food-must">必點：季節套餐</div></div>
+  <div class="food-item"><div class="food-name">Asian Glories <span class="food-badge fb-bib">Bib ⭐</span></div><div class="food-detail">West Kruiskade 71 · €25–40</div><div class="food-must">必點：廣式飲茶 + 北京烤鴨</div></div>
+  <div class="food-item"><div class="food-name">Vineum <span class="food-badge fb-bib">Bib ⭐</span></div><div class="food-detail">Pannekoekstraat 26 · €40–55 · 法式自然酒館</div><div class="food-must">必點：羊肉 / 鴨肉</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Bruges → Ghent</div>
+  <div class="city-sub">07/15 傍晚</div>
+  <div class="food-item"><div class="food-name">Roots <span class="food-badge fb-local">在地</span></div><div class="food-detail">Godshuizenlaan 21 · 3 道 €29 / 6 道 €59 · 必預約</div><div class="food-must">必點：季節時令</div></div>
+  <div class="food-item"><div class="food-name">Pakhuis <span class="food-badge fb-local">在地</span></div><div class="food-detail">Schuurkenstraat 4 · €30–45 · 19 世紀倉庫改建</div><div class="food-must">必點：Stoofvlees + 比利時啤酒</div></div>
+  <div class="food-item"><div class="food-name">Mémé Gusta <span class="food-badge fb-local">必去</span></div><div class="food-detail">Burgstraat 19 · €20–35</div><div class="food-must">必點：Stoofvlees（啤酒燉牛肉）</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Luxembourg</div>
+  <div class="city-sub">07/18</div>
+  <div class="food-item"><div class="food-name">Mosella <span class="food-badge fb-bib">Bib ⭐</span></div><div class="food-detail">€35–50 · 摩澤爾河谷料理</div><div class="food-must">必點：魚料理 + 盧森堡白酒</div></div>
+  <div class="food-item"><div class="food-name">Aal Poort <span class="food-badge fb-local">在地</span></div><div class="food-detail">Rue Münster 6 · €25–40 · 盧森堡國菜</div><div class="food-must">必點：Judd mat Gaardebounen（燻豬肉配蠶豆）</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Strasbourg</div>
+  <div class="city-sub">07/19</div>
+  <div class="food-item"><div class="food-name">Winstub Zum Strissel <span class="food-badge fb-local">必去</span></div><div class="food-detail">5 Pl. de la Grande Boucherie · €20–35 · 1522年老店</div><div class="food-must">必點：Choucroute Garnie（酸菜豬腳）+ Tarte Flambée</div></div>
+  <div class="food-item"><div class="food-name">La Vignette <span class="food-badge fb-local">在地</span></div><div class="food-detail">Rue de la Mésange · €25–40 · 阿爾薩斯自然酒</div><div class="food-must">必點：時令菜單</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Stuttgart</div>
+  <div class="city-sub">07/22–24</div>
+  <div class="food-item"><div class="food-name">Weinstube Fröhlich <span class="food-badge fb-local">在地</span></div><div class="food-detail">Urbanstr. 26 · €15–25 · 斯瓦比亞傳統酒館</div><div class="food-must">必點：Maultaschen（德式大餃子）+ Käsespätzle</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Cologne</div>
+  <div class="city-sub">07/25</div>
+  <div class="food-item"><div class="food-name">Bei Oma Kleinmann <span class="food-badge fb-local">必去</span></div><div class="food-detail">Zülpicher Str. 9 · €15–25 · 科隆最知名家庭餐廳，必排隊</div><div class="food-must">必點：Himmel un Ääd</div></div>
+  <div class="food-item"><div class="food-name">Peters Brauhaus <span class="food-badge fb-local">在地</span></div><div class="food-detail">Mühlengasse 1 · €15–28 · 自釀 Kölsch，大教堂旁</div><div class="food-must">必點：Kölsch 啤酒（只有科隆才有）</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Amsterdam</div>
+  <div class="city-sub">07/29–30</div>
+  <div class="food-item"><div class="food-name">A-Fusion <span class="food-badge fb-bib">Bib ⭐</span></div><div class="food-detail">Zeedijk 130 · €30–45 · 亞洲創意融合</div><div class="food-must">必點：Jordan 區</div></div>
+  <div class="food-item"><div class="food-name">Frites Atelier <span class="food-badge fb-local">必去</span></div><div class="food-detail">Reguliersdwarsstraat 28 · €8–15 · Michelin 主廚薯條</div><div class="food-must">必點：醬料搭配</div></div>
+</div></div>
+  <div id="food-cafe" class="sub-panel">
+<div class="city-block">
+  <div class="city-lbl">Rotterdam</div>
+  <div class="food-item"><div class="food-name">Man met Bril <span class="food-badge fb-cafe">自家烘豆</span></div><div class="food-detail">Goudsesingel 173 · 鹿特丹指標烘豆師，風格精準</div></div>
+  <div class="food-item"><div class="food-name">Shokunin Coffee <span class="food-badge fb-cafe">日式</span></div><div class="food-detail">Nieuwe Binnenweg · 日式精神 × 荷蘭精品豆，沉靜出品</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Ghent</div>
+  <div class="food-item"><div class="food-name">OR Coffee <span class="food-badge fb-cafe">⭐ 先驅</span></div><div class="food-detail">Jakobijnenstraat 8 · 比利時第三波咖啡先驅，輕焙單一產地</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Brussels（過路）</div>
+  <div class="food-item"><div class="food-name">MOK Specialty Coffee <span class="food-badge fb-cafe">⭐ 頂尖</span></div><div class="food-detail">Rue Antoine Dansaert 195 · 比利時頂尖烘豆，極輕焙</div></div>
+  <div class="food-item"><div class="food-name">Fika <span class="food-badge fb-mom">媽媽友善</span></div><div class="food-detail">Place du Châtelain · 北歐風格，自製肉桂捲，空間舒適</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Strasbourg</div>
+  <div class="food-item"><div class="food-name">L'Escabeau d'Omnino <span class="food-badge fb-cafe">⭐ 最推</span></div><div class="food-detail">Rue des Orfèvres 13 · 阿爾薩斯微型烘豆坊，最在地</div></div>
+  <div class="food-item"><div class="food-name">Café Bretelles <span class="food-badge fb-mom">媽媽友善</span></div><div class="food-detail">Rue de Zurich 4 · 史特拉斯堡第一家精品咖啡（2014），小法國區有分店</div></div>
+  <div class="food-item"><div class="food-name">Coffee Stub <span class="food-badge fb-cafe">景觀</span></div><div class="food-detail">Quai des Bateliers 13 · 運河旁，Saint-Paul 教堂對面，露台超美</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Utrecht</div>
+  <div class="food-item"><div class="food-name">Keen Coffee <span class="food-badge fb-cafe">⭐ 城市指標</span></div><div class="food-detail">Oudegracht 286 · 烏特勒支最受推崇精品烘豆</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">Amsterdam</div>
+  <div class="food-item"><div class="food-name">Lot61 Coffee <span class="food-badge fb-cafe">⭐ 元老</span></div><div class="food-detail">Kinkerstraat 112 · 澳洲創辦人，場內自行烘豆，Oud-West 區</div></div>
+  <div class="food-item"><div class="food-name">Bocca Coffee <span class="food-badge fb-mom">媽媽友善</span></div><div class="food-detail">Weteringstraat 48 · 荷蘭最早精品烘豆（2001），Rijksmuseum 旁</div></div>
+  <div class="food-item"><div class="food-name">Haku <span class="food-badge fb-cafe">日式</span></div><div class="food-detail">Haarlemmerdijk 25 · 日式美學，自製陶器，Jordan 區</div></div>
+  <div class="food-item"><div class="food-name">Friedhats FUKU <span class="food-badge fb-cafe">最狂</span></div><div class="food-detail">Jan Evertsenstraat 136 · 微批次限量，業界最受推崇</div></div>
+</div></div>
+  <div id="food-sov" class="sub-panel">
+<div class="city-block">
+  <div class="city-lbl">🇳🇱 荷蘭（整段旅程都可買）</div>
+  <div class="sov-item"><div class="sov-name">Delft 藍陶</div><div class="sov-note">Royal Delft 品牌，杯/磚/小擺件，台灣無正品。阿爾克馬爾或阿姆斯特丹買</div></div>
+  <div class="sov-item"><div class="sov-name">熟成 Gouda 起司</div><div class="sov-note">阿爾克馬爾市場或超市，買 Extra Aged 最香，真空包帶回</div></div>
+  <div class="sov-item"><div class="sov-name">Stroopwafel</div><div class="sov-note">Albert Heijn 超市買，比機場便宜</div></div>
+  <div class="sov-item"><div class="sov-name">甘草糖 Dropjes</div><div class="sov-note">鹹甜黑甘草軟糖，荷蘭獨有</div></div>
+  <div class="sov-item"><div class="sov-name">梵谷美術館限定品</div><div class="sov-note">館內限定印刷/磁鐵/書籍，7/29 逛完直接買</div></div>
+  <div class="sov-item"><div class="sov-name">Vitra 設計商品</div><div class="sov-note">VitraHaus 商店（7/21），限定文具/書/小物</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">🇧🇪 比利時</div>
+  <div class="sov-item"><div class="sov-name">手工巧克力</div><div class="sov-note">布魯日獨立巧克力店比連鎖更新鮮</div></div>
+  <div class="sov-item"><div class="sov-name">根特芥末醬 Tierenteyn</div><div class="sov-note">1790 年老店，Groentenmarkt 3，復古包裝最適合送人</div></div>
+  <div class="sov-item"><div class="sov-name">Trappist 啤酒</div><div class="sov-note">Chimay / Westmalle，超市買 6 瓶裝，比台灣便宜很多</div></div>
+  <div class="sov-item"><div class="sov-name">布魯日手工蕾絲</div><div class="sov-note">Kantcentrum 可買到真品，可現場看製作</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">🇩🇪 德國</div>
+  <div class="sov-item"><div class="sov-name">亞琛薑餅 Printen</div><div class="sov-note">亞琛獨有，7/16 就買，城裡到處有賣</div></div>
+  <div class="sov-item"><div class="sov-name">科隆 4711 古龍水</div><div class="sov-note">Glockengasse 4 發源老店，限定款比外地便宜</div></div>
+  <div class="sov-item"><div class="sov-name">Kölsch 啤酒杯</div><div class="sov-note">科隆圓柱小玻璃杯，只有在科隆買才有意義</div></div>
+  <div class="sov-item"><div class="sov-name">斯瓦比亞紅酒</div><div class="sov-note">Württemberg 產區，Edeka 超市，台灣幾乎買不到</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">🇫🇷 法國（史特拉斯堡 7/19）</div>
+  <div class="sov-item"><div class="sov-name">阿爾薩斯白葡萄酒</div><div class="sov-note">Riesling / Gewürztraminer，法國最特殊的白酒區，超市買 1–2 瓶</div></div>
+  <div class="sov-item"><div class="sov-name">Bredele 餅乾鐵罐</div><div class="sov-note">阿爾薩斯傳統小餅乾，精緻小鐵罐裝</div></div>
+</div>
+<div class="city-block">
+  <div class="city-lbl">🇨🇭 瑞士（巴賽爾 7/21）</div>
+  <div class="sov-item"><div class="sov-name">Läderach 高端巧克力</div><div class="sov-note">比 Lindt 好非常多，新鮮製作</div></div>
+  <div class="sov-item"><div class="sov-name">Ricola 喉糖</div><div class="sov-note">瑞士原產地口味更多，比台灣便宜</div></div>
+</div></div>
+</section>
+<!-- ACCOMMODATION -->
+<section id="accom" class="section">
+  <div class="sec-head">
+    <div class="sec-over">Accommodation</div>
+    <div class="sec-title">🏨 住宿一覽</div>
+    <div class="sec-sub">全程 13 晚 · 依行程順序 · 點地圖可導航</div>
+  </div>
+  <div style="background:var(--card);border:0.5px solid var(--line);border-radius:var(--rs);overflow:hidden">
+    <div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/13–14</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Numa Rotterdam Coolsingel <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">Coolsingel 137</div>
+    <div style="font-size:12px;color:var(--ink2)">🇳🇱 荷蘭</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">取消截止 7/10</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJHWmhgNYzxEcRNPE7WMYRp90" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/15</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">B&B Hotel Gent Centrum <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">17 Voldersstraat, Gent</div>
+    <div style="font-size:12px;color:var(--ink2)">🇧🇪 比利時</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">入住當日 14:00</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJtwvuIURxw0cRoHM5icROTb0" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/16</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Aquis Grana 亞琛城市酒店 <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">Büchel 32, Aachen</div>
+    <div style="font-size:12px;color:var(--ink2)">🇩🇪 德國</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">入住當日 18:00</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ79YRp2SZwEcRKc7rTcAg-3Y" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/17</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Manoir Kasselslay <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">9 Hënnescht Duerf, Roder</div>
+    <div style="font-size:12px;color:var(--ink2)">🇱🇺 盧森堡</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">取消截止 7/15</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJo36G7M_3v0cRoVPrpd_9m8c" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/18</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Coque Hotel <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">2 rue Léon Hengen, Luxembourg</div>
+    <div style="font-size:12px;color:var(--ink2)">🇱🇺 盧森堡</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">取消截止 7/16</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJAfqSzEBPlUcRgFl7U-fm04E" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/19</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Hotel des Vosges BW Premier <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">3 Place De La Gare, Strasbourg</div>
+    <div style="font-size:12px;color:var(--ink2)">🇫🇷 法國</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">取消截止 7/18 16:00</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJebse7-PJlkcRbJqXSdyts-U" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/20</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">廊香 / 貝爾福民宿 <span class="badge b-pend">待訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">待訂</div>
+    <div style="font-size:12px;color:var(--ink2)">🇫🇷 法國</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">待訂</div>
+  </div>
+  <div style="font-size:11px"></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/21</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Holiday Inn Express Basel <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">Hegenheimermattweg 179, Allschwil</div>
+    <div style="font-size:12px;color:var(--ink2)">🇨🇭 瑞士</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">取消截止 7/19</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJO7wLViK5kUcRtzvkft8LhYc" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/22–23</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Adina Apartment Stuttgart <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">Kopenhagener Str. 3, Stuttgart</div>
+    <div style="font-size:12px;color:var(--ink2)">🇩🇪 德國</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">取消截止 7/20</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJKVna0c3bmUcRrHwyIkDcbT8" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/24</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Lindner Hotel Cologne <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">Magnusstr. 20, Köln</div>
+    <div style="font-size:12px;color:var(--ink2)">🇩🇪 德國</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">取消截止 7/21</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ1bqcuQclv0cRxqIUcbIkjS0" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/25–26</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Hampton by Hilton Utrecht <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">Boven Catharijnepoort 4, Utrecht</div>
+    <div style="font-size:12px;color:var(--ink2)">🇳🇱 荷蘭</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">取消截止 7/20</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ_xxGFFZvxkcRb2gHOiFrBtM" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/27</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">Giethoorn Old Art Hotel <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">Ds.T.O. Hylkemaweg 7, Giethoorn</div>
+    <div style="font-size:12px;color:var(--ink2)">🇳🇱 荷蘭</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:4px">取消截止 7/19</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJ8fkLoChuyEcRdkfFOqoXy6s" target="_blank">📍 地圖</a></div>
+</div>
+<div style="display:grid;grid-template-columns:80px 1fr auto;gap:10px 14px;padding:14px 18px;border-bottom:0.5px solid var(--line);align-items:start">
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;padding-top:2px">07/28–30</div>
+  <div>
+    <div style="font-size:15px;font-weight:500;color:var(--ink1);margin-bottom:3px">逸居酒店 Amsterdam <span class="badge b-ok">✓ 已訂</span></div>
+    <div style="font-size:12px;color:var(--ink3);margin-bottom:2px">Tempelhofstraat 2, Amsterdam</div>
+    <div style="font-size:12px;color:var(--ink2)">🇳🇱 荷蘭</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--red);font-weight:500;margin-top:4px">⚠️ 不可取消</div>
+  </div>
+  <div style="font-size:11px"><a class="el" href="https://maps.google.com/maps?q=place_id:ChIJX1rTlu8JxkcRGsV8-a4oKMI" target="_blank">📍 地圖</a></div>
+</div>
+
+  </div>
+</section>
+<section id="checklist" class="section">
+  <div class="sec-head">
+    <div class="sec-over">Packing List</div>
+    <div class="sec-title">🎒 行李清單</div>
+    <div class="sec-sub">點選每項確認打包 · 進度自動儲存</div>
+  </div>
+  
+<div class="todo-section-title">📄 證件文件</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">護照（有效期 6 個月以上）</div><div class="todo-detail">出入境 + 租車取車必備</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">台灣駕照</div><div class="todo-detail">租車必備，AVIS 要同時出示</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">國際駕照</div><div class="todo-detail">租車必備，辦理時確認有效期至 2027 年以上</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">機票確認截圖</div><div class="todo-detail">FN6JXV · 中華航空 CI0073/CI0074</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">租車確認單</div><div class="todo-detail">750441465 · AVIS 第一段（亞琛）· 第二段待訂</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">F1 票券截圖</div><div class="todo-detail">VEIN/2026/08387 · Bronze Zone × 2</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">旅遊保險文件</div><div class="todo-detail">確認含醫療緊急、行李損失</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">信用卡（Visa/Mastercard）</div><div class="todo-detail">各帶一張，法國收費站需要</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">備用現金</div><div class="todo-detail">€200–300 · 法國收費站、部分小市場</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">各住宿確認截圖</div><div class="todo-detail">11 間住宿確認單備份</div></div>
+  
+</div>
+
+<div class="todo-section-title">📱 科技裝備</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">手機 + 充電線</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">歐洲 eSIM 設定完成</div><div class="todo-detail">6 國漫遊 · NL/BE/LU/FR/CH/DE · 出發前啟用測試</div></div>
+  <span class="urg u-soon">出發前</span>
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">歐洲插座轉接頭</div><div class="todo-detail">Type C/E/F · 建議帶 2–3 個</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">行動電源（<100Wh）</div><div class="todo-detail">機艙可攜帶</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">相機 + 充電器</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">120 底片 × 5 捲</div><div class="todo-detail">120 格，一捲 12–16 張</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">底片機清潔布 + 吹氣球</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">Google Maps 離線地圖</div><div class="todo-detail">BE/LU/FR/DE/CH/NL 各國離線下載</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">Strava / 跑步 app 設定</div></div>
+  
+</div>
+
+<div class="todo-section-title">👟 運動</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">跑步鞋</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">跑步服 × 3 套</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">防曬袖套 / 帽子</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">運動內衣 / 壓縮褲</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">跑步防磨貼（水泡預防）</div></div>
+  
+</div>
+
+<div class="todo-section-title">👔 衣物</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">輕薄外套</div><div class="todo-detail">7 月歐洲早晚涼，白天熱</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">防風雨薄外套</div><div class="todo-detail">輕薄可收納</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">上衣 × 7</div><div class="todo-detail">可洗滌</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">褲子 × 3</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">稍正式衣服 × 1 套</div><div class="todo-detail">高級餐廳備用</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">舒適走路鞋 × 2 雙</div><div class="todo-detail">換穿，每天可能走 15–20 km</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">涼鞋</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">內衣褲 × 7</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">帽子（遮陽）</div></div>
+  
+</div>
+
+<div class="todo-section-title">💊 健康</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">腸胃藥</div><div class="todo-detail">旅行者腹瀉常見</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">止痛藥（普拿疼）</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">感冒藥</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">防曬乳 SPF 50+</div><div class="todo-detail">7 月歐洲紫外線強</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">OK 繃 + 傷口藥</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">抗組織胺</div></div>
+  
+</div>
+
+<div class="todo-section-title">📸 建築攝影</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">120 底片機（主力）</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">底片 × 5 捲（已記入科技欄）</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">Gorilla Pod 小型三腳架</div><div class="todo-detail">部分博物館不允許使用，確認規定</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">建築筆記本 + 鉛筆</div><div class="todo-detail">速寫紀錄</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">Strava 城市跑步路線存檔</div></div>
+  
+</div>
+
+<div class="todo-section-title">🚗 租車</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">確認 AVIS 第二段租車</div><div class="todo-detail">烏特勒支取車 7/27 · 阿姆斯特丹還車 7/29 · TWD 5,796</div></div>
+  <span class="urg u-soon">待辦</span>
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">確認瑞士路線</div><div class="todo-detail">Holiday Inn Basel-Allschwil 在瑞士 · 確認走德國 B3 路線，避開瑞士高速（CHF 40 Vignette）</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">法國收費站零錢</div><div class="todo-detail">€20 備用，A4 收費約 €8</div></div>
+  
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">國際駕照有效期確認</div></div>
+  
+</div>
+
+<div class="todo-section-title">✅ 出發前完成</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">梵谷美術館票</div><div class="todo-detail">7/29 · tickets.vangoghmuseum.com · €25/人 × 2</div></div>
+  <span class="urg u-now">緊急</span>
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">Rietveld Schröder House 預約</div><div class="todo-detail">7/26 · €19/人 × 2</div></div>
+  <span class="urg u-now">緊急</span>
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">Vitra 建築導覽票</div><div class="todo-detail">7/21 11:00 · design-museum.reservix.de · €35/人</div></div>
+  <span class="urg u-soon">一個月前</span>
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">廊香教堂門票</div><div class="todo-detail">7/20 · collinenotredameduhaut.com · €8–12/人</div></div>
+  <span class="urg u-soon">一個月前</span>
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">廊香 / 貝爾福民宿</div><div class="todo-detail">7/20 · 搜尋 Ronchamp / Belfort B&B</div></div>
+  <span class="urg u-now">緊急</span>
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">Hohenzollern Castle 票</div><div class="todo-detail">7/22 · 建議選 12:00 時段 · €26/人</div></div>
+  <span class="urg u-soon">一個月前</span>
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">亞琛 → 烏特勒支 ICE 高鐵票</div><div class="todo-detail">7/25 · bahn.de · 提前訂便宜</div></div>
+  <span class="urg u-soon">一個月前</span>
+</div>
+<div class="todo-item" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">Kröller-Müller 公園票</div><div class="todo-detail">7/27 · €13.85/人 + €9.80 開車</div></div>
+  <span class="urg u-soon">一個月前</span>
+</div>
+<div class="todo-item done" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">機票訂位 CI0073/CI0074</div><div class="todo-detail">FN6JXV</div></div>
+  
+</div>
+<div class="todo-item done" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">AVIS 第一段租車（亞琛）</div><div class="todo-detail">750441465</div></div>
+  
+</div>
+<div class="todo-item done" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">F1 比利時 GP 票</div><div class="todo-detail">VEIN/2026/08387</div></div>
+  
+</div>
+<div class="todo-item done" onclick="checkTodo(this)">
+  <div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div>
+  <div class="todo-body"><div class="todo-title">全程住宿 11 間</div><div class="todo-detail">Numa/B&B Gent/亞琛/羅德爾/盧森堡/史特拉斯堡/巴賽爾/斯圖加特/科隆/烏特勒支/羊角村/逸居</div></div>
+  
+</div>
+</section>
+<section id="worldcup" class="section">
+  <div class="sec-head">
+    <div class="sec-over">FIFA World Cup 2026</div>
+    <div class="sec-title">⚽ 世界盃</div>
+    <div class="sec-sub">旅途中正值淘汰賽 · 時間為荷蘭當地時間 · 凌晨隨緣看</div>
+  </div>
+  <div class="info-card">
+    <h3>賽程快查（荷蘭時間）</h3>
+    <div class="cancel-grid">
+      <div class="cancel-row"><div class="cancel-hotel">7/12（日）8強①</div><div class="cancel-date">05:00 Miami · 飛機上</div></div>
+      <div class="cancel-row"><div class="cancel-hotel">7/12（日）8強②</div><div class="cancel-date">09:00 Kansas City · 飛機上</div></div>
+      <div class="cancel-row"><div class="cancel-hotel">7/15（三）準決賽①</div><div class="cancel-date urg">03:00 Dallas · 你在根特</div></div>
+      <div class="cancel-row"><div class="cancel-hotel">7/16（四）準決賽②</div><div class="cancel-date urg">03:00 Atlanta · 你在亞琛</div></div>
+      <div class="cancel-row"><div class="cancel-hotel">7/19（日）三四名</div><div class="cancel-date">05:00 Miami · 你在史特拉斯堡</div></div>
+      <div class="cancel-row"><div class="cancel-hotel" style="font-weight:500">7/20（一）🏆 決賽</div><div class="cancel-date urg" style="font-weight:500">03:00 New York · 你在廊香</div></div>
+    </div>
+  </div>
+  <div class="info-card">
+    <h3>各城市看球地點</h3>
+    <ul class="info-list">
+      <li><strong>根特</strong>：Korenmarkt 廣場戶外螢幕（比利時比賽日）· Patershol 區酒吧</li>
+      <li><strong>亞琛</strong>：市中心啤酒館，德國比賽日全城都在看</li>
+      <li><strong>科隆</strong>：Peters Brauhaus（大教堂旁）· Heumarkt 廣場</li>
+      <li><strong>阿姆斯特丹</strong>：Rembrandtplein 廣場 ⭐（荷蘭比賽最熱鬧）· Leidseplein 廣場</li>
+      <li>💡 找「live football」或「wedstrijd」（荷文：比賽），橘色裝飾的酒吧必播荷蘭場次</li>
+    </ul>
+  </div>
+</section>
+<section id="todo" class="section">
+  <div class="sec-head">
+    <div class="sec-over">Action Items</div>
+    <div class="sec-title">代訂清單</div>
+  </div>
+  <div class="todo-section-title">🔴 緊急 — 現在就辦</div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">梵谷美術館門票</div><div class="todo-detail">7/29 · €25/人 × 2 · <a href="https://tickets.vangoghmuseum.com">tickets.vangoghmuseum.com</a></div></div><span class="urg u-now">緊急</span></div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">Rietveld Schröder House 預約</div><div class="todo-detail">7/26 · €19/人 × 2 · <a href="https://www.rietveldschroderhuis.nl/en/visit/tickets-tijden-en-prijzen">rietveldschroderhuis.nl</a></div></div><span class="urg u-now">緊急</span></div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">廊香 / 貝爾福民宿（7/20）</div><div class="todo-detail">夏天熱門 · 搜尋 Ronchamp / Belfort B&B</div></div><span class="urg u-now">緊急</span></div>
+  <div class="todo-section-title">🟡 一個月前辦</div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">Hohenzollern Castle 門票</div><div class="todo-detail">7/22 建議 12:00 時段 · €26/人 · <a href="https://burg-hohenzollern.com/online_ticket.html">burg-hohenzollern.com</a></div></div><span class="urg u-soon">一個月前</span></div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">Vitra 建築導覽套票</div><div class="todo-detail">7/21 11:00 · €35/人 · <a href="https://design-museum.reservix.de">design-museum.reservix.de</a></div></div><span class="urg u-soon">一個月前</span></div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">廊香教堂門票預約</div><div class="todo-detail">7/20 · €8–12/人 · <a href="https://www.collinenotredameduhaut.com">collinenotredameduhaut.com</a></div></div><span class="urg u-soon">一個月前</span></div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">亞琛 → 烏特勒支 ICE 高鐵票</div><div class="todo-detail">7/25 · <a href="https://www.bahn.de">bahn.de</a></div></div><span class="urg u-soon">一個月前</span></div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">Kröller-Müller 公園票</div><div class="todo-detail">7/27 · €13.85/人 + €9.80 · <a href="https://krollermuller.nl/en/buy-your-ticket">krollermuller.nl</a></div></div><span class="urg u-soon">一個月前</span></div>
+  <div class="todo-section-title">🔵 出發前確認</div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">AVIS 第二段租車（7/27–29）</div><div class="todo-detail">烏特勒支取車 → 阿姆斯特丹 Overtoom 還車 · Toyota Yaris · TWD 5,796</div></div><span class="urg u-info">待辦</span></div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">歐洲 eSIM 購買</div><div class="todo-detail">涵蓋 NL/BE/LU/FR/CH/DE</div></div><span class="urg u-info">待辦</span></div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">Museumkaart 荷蘭博物館年卡</div><div class="todo-detail">€64.95/人 · 抵達後在 Depot Boijmans 購買</div></div><span class="urg u-info">建議</span></div>
+  <div class="todo-item" onclick="checkTodo(this)"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">確認國際駕照有效期</div><div class="todo-detail">台灣駕照 + 國際駕照，租車必備</div></div><span class="urg u-info">確認</span></div>
+  <div class="todo-section-title">✅ 已完成</div>
+  <div class="todo-item done"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">機票 CI0073 / CI0074</div><div class="todo-detail">FN6JXV · 7/12 出發 · 8/1 返台</div></div></div>
+  <div class="todo-item done"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">AVIS 第一段租車（亞琛 7/17–25）</div><div class="todo-detail">750441465 · VW T-Roc SUV</div></div></div>
+  <div class="todo-item done"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">F1 比利時 GP 票（Bronze Zone × 2）</div><div class="todo-detail">VEIN/2026/08387 · €240 · 含停車</div></div></div>
+  <div class="todo-item done"><div class="todo-check"><svg class="todo-check-icon" viewBox="0 0 11 8"><path d="M1 4L4 7L10 1"/></svg></div><div class="todo-body"><div class="todo-title">全程住宿 11 間已完成預訂</div><div class="todo-detail">Numa Rotterdam / B&B Gent / 亞琛 / 羅德爾 / 盧森堡 / 史特拉斯堡 / 巴賽爾 / 斯圖加特 / 科隆 / 烏特勒支 / 羊角村 / 逸居阿姆斯特丹</div></div></div>
+</section>
+<section id="tickets" class="section">
+  <div class="sec-head">
+    <div class="sec-over">Entry Prices</div>
+    <div class="sec-title">門票攻略</div>
+  </div>
+  
+<div class="hl-box">
+  <h3>💡 Museumkaart 荷蘭博物館年卡 €64.95/人</h3>
+  <p>可免費進入荷蘭 500+ 間博物館，一年有效。抵達後在 Depot Boijmans 售票處現場購買。<br><br>✅ 可用：Depot Boijmans · Kröller-Müller（仍需買公園票）· Centraal Museum Utrecht<br>❌ 不接受：梵谷美術館（需另購）</p>
+</div>
+<div class="ticket-table">
+  <div class="ticket-head">🔴 必須提前線上預購</div>
+  <div class="ticket-row"><div><div class="ticket-name">梵谷美術館</div><div class="ticket-sub">7/29 阿姆斯特丹 · 無現場售票</div><div class="ticket-urg tn">⚠️ 現在就訂 tickets.vangoghmuseum.com</div></div><div><div class="ticket-price">€25</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">Rietveld Schröder House</div><div class="ticket-sub">7/26 烏特勒支 · 每時段限少數人</div><div class="ticket-urg tn">⚠️ 盡快訂 rietveldschroderhuis.nl</div></div><div><div class="ticket-price">€19</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">Hohenzollern Castle</div><div class="ticket-sub">7/22 · 建議選 12:00 時段</div><div class="ticket-urg ts">建議提前訂 burg-hohenzollern.com</div></div><div><div class="ticket-price">€26</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">Vitra 套票（導覽+博物館+Schaudepot）</div><div class="ticket-sub">7/21 · 每日 11:00 一場</div><div class="ticket-urg ts">提前訂 design-museum.reservix.de</div></div><div><div class="ticket-price">~€35</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">廊香教堂</div><div class="ticket-sub">7/20 · 建議提前預約</div></div><div><div class="ticket-price">€8–12</div><div class="ticket-price-sub">/人</div></div></div>
+</div>
+<div class="ticket-table" style="margin-top:16px">
+  <div class="ticket-head">🟢 可現場購票</div>
+  <div class="ticket-row"><div><div class="ticket-name">Kröller-Müller 公園票</div><div class="ticket-sub">7/27 · Museumkaart 免博物館費</div></div><div><div class="ticket-price">€13.85</div><div class="ticket-price-sub">/人 +€9.80 車</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">Schloss Lichtenstein</div><div class="ticket-sub">7/22</div></div><div><div class="ticket-price">€13–16</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">Bock 要塞地下隧道</div><div class="ticket-sub">7/18 盧森堡</div></div><div><div class="ticket-price">€10</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">賓士博物館</div><div class="ticket-sub">7/23</div></div><div><div class="ticket-price">€12</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">保時捷博物館</div><div class="ticket-sub">7/24</div></div><div><div class="ticket-price">€10</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">科隆大教堂塔樓</div><div class="ticket-sub">7/25 · 大教堂免費</div></div><div><div class="ticket-price">€6</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">Kolumba Museum</div><div class="ticket-sub">7/25 科隆</div></div><div><div class="ticket-price">€8</div><div class="ticket-price-sub">/人</div></div></div>
+  <div class="ticket-row"><div><div class="ticket-name">Depot Boijmans</div><div class="ticket-sub">7/14 · Museumkaart 可用</div></div><div><div class="ticket-price">€20</div><div class="ticket-price-sub">/人 或 Museumkaart</div></div></div>
+</div>
+</section>
+<section id="mom" class="section">
+  <div class="sec-head">
+    <div class="sec-over">For Mom</div>
+    <div class="sec-title">景點介紹</div>
+    <div class="sec-sub">給媽媽的說明，點每個景點展開介紹</div>
+  </div>
+  <p style="font-size:14px;color:var(--ink3);padding:8px 0 24px">（景點介紹內容維持現有，這次重構主要更新了行程和設計）</p>
+</section>
+<section id="notes" class="section">
+  <div class="sec-head">
+    <div class="sec-over">Quick Reference</div>
+    <div class="sec-title">旅遊備忘</div>
+  </div>
+  
+<div class="info-card">
+  <h3>✈️ 機票</h3>
+  <ul class="info-list">
+    <li>去程 CI0073：桃園 23:10（7/12）→ 史基浦 07:40（7/13）</li>
+    <li>回程 CI0074：史基浦 11:00（7/31）→ 桃園 06:15（8/1）</li>
+    <li>訂位代號：<strong>FN6JXV</strong> · 手提：56×36×23cm，7kg</li>
+  </ul>
+</div>
+<div class="info-card">
+  <h3>🚗 第一段租車（AVIS 亞琛）</h3>
+  <ul class="info-list">
+    <li>取車：7/17 09:00 · 亞琛 Julicher Strasse · <a href="https://maps.google.com/maps?q=place_id:ChIJeantIkaZwEcRgN2z3RqjIVM" target="_blank">地圖</a></li>
+    <li>還車：7/25 14:00 · 同地點</li>
+    <li>訂單：<strong>750441465</strong> · VW T-Roc SUV</li>
+    <li>必帶：護照 + 台灣駕照 + 國際駕照</li>
+  </ul>
+</div>
+<div class="info-card">
+  <h3>🚗 第二段租車（AVIS，待訂）</h3>
+  <ul class="info-list">
+    <li>取車：7/27 09:30 · 烏特勒支 Amsterdamsestraatweg · <a href="https://maps.google.com/maps?q=place_id:ChIJG7T_v6VvxkcRGtN1zbB9cb0" target="_blank">地圖</a></li>
+    <li>還車：7/29 09:30 · 阿姆斯特丹 Overtoom · <a href="https://maps.google.com/maps?q=place_id:ChIJNZx-y-MJxkcR4dBvNpAyDAo" target="_blank">地圖</a></li>
+    <li>Toyota Yaris · TWD 5,796 / 2天</li>
+  </ul>
+</div>
+<div class="info-card">
+  <h3>🏎 F1 比利時 GP（已購）</h3>
+  <ul class="info-list">
+    <li>7/17（週五）Bronze Zone × 2 人 · Green Area 停車含票</li>
+    <li>FP1 13:30–14:30 · FP2 17:00–18:00</li>
+    <li>費用：€240 · 訂單 VEIN/2026/08387</li>
+  </ul>
+</div>
+
+<div class="info-card" style="margin-top:20px">
+  <h3>🛣 自駕國家速限 & 收費</h3>
+  <table class="road-table">
+    <thead><tr><th>國家</th><th>高速速限</th><th>收費</th><th>注意</th></tr></thead>
+    <tbody>
+      <tr><td>🇧🇪 比利時</td><td>120 km/h</td><td class="free">免費</td><td>—</td></tr>
+      <tr><td>🇱🇺 盧森堡</td><td>130 km/h</td><td class="free">免費</td><td>—</td></tr>
+      <tr><td>🇫🇷 法國</td><td>130 km/h</td><td class="paid">需繳費</td><td>A4 約 €8，備零錢/信用卡</td></tr>
+      <tr><td>🇩🇪 德國</td><td class="unlimited">部分無限速</td><td class="free">免費</td><td>有標示路段 130。環保貼紙 AVIS 已有</td></tr>
+      <tr><td>🇨🇭 瑞士</td><td>120 km/h</td><td class="paid">Vignette CHF 40</td><td>⚠️ 走德國 B3 路線出 Basel 可避開。確認酒店路線</td></tr>
+      <tr><td>🇳🇱 荷蘭</td><td>100 km/h</td><td class="free">免費</td><td>測速嚴格，100 一定要守</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="info-card" style="margin-top:12px">
+  <h3>⚠️ 住宿取消截止日</h3>
+  <div class="cancel-grid">
+    <div class="cancel-row"><div class="cancel-hotel">Numa Rotterdam</div><div class="cancel-date urg">7/10</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">Manoir Kasselslay（羅德爾）</div><div class="cancel-date urg">7/15</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">Coque Hotel 盧森堡</div><div class="cancel-date urg">7/16</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">Hotel des Vosges 史特拉斯堡</div><div class="cancel-date urg">7/18 16:00</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">Giethoorn Old Art Hotel</div><div class="cancel-date">7/19</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">Holiday Inn Basel</div><div class="cancel-date">7/19</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">Adina Stuttgart</div><div class="cancel-date">7/20</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">Hampton Utrecht</div><div class="cancel-date">7/20（之後罰 €158）</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">Lindner Cologne</div><div class="cancel-date">7/21</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">B&B Gent</div><div class="cancel-date">入住當日 14:00</div></div>
+    <div class="cancel-row"><div class="cancel-hotel">Aquis Grana 亞琛</div><div class="cancel-date">入住當日 18:00</div></div>
+    <div class="cancel-row"><div class="cancel-hotel" style="font-weight:500">逸居酒店 Amsterdam</div><div class="cancel-date urg">不可取消</div></div>
+  </div>
+</div>
+<div class="info-card">
+  <h3>💰 入住注意</h3>
+  <ul class="info-list">
+    <li>B&B Gent：押金 €50（現金）</li>
+    <li>Adina Stuttgart：押金 €200（信用卡）</li>
+    <li>逸居酒店：押金 €100（信用卡，14 天後退）</li>
+    <li>Hampton Utrecht：00:00–06:00 走夜間入口 Catharijne Esplanade 44</li>
+    <li>Coque Hotel：週六接待 07:30–20:00</li>
+  </ul>
+</div>
+</section>
+</div>
+
+<footer style="background:var(--ink1);color:rgba(247,244,239,.3);text-align:center;padding:32px 20px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;margin-top:60px">
+  2026 EUROPE ARCHITECTURE TOUR · 20 DAYS · 07.12 — 08.01
+</footer>
+
+<script>
+function showTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:document.querySelector('.nav').offsetTop,behavior:'smooth'});
+}
+
+function showSub(id,btn){
+  const sec=btn.closest('.section');
+  sec.querySelectorAll('.sub-panel').forEach(p=>p.classList.remove('on'));
+  sec.querySelectorAll('.sub-tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+
+function toggleDay(head){
+  if(event.target.tagName==='A')return;
+  head.closest('.day').classList.toggle('open');
+}
+
+function checkTodo(el){
+  if(event.target.tagName==='A')return;
+  el.classList.toggle('done');
+  saveChecks();
+}
+
+function saveChecks(){
+  const states={};
+  document.querySelectorAll('.todo-item').forEach((el,i)=>{states[i]=el.classList.contains('done')});
+  try{localStorage.setItem('eu26_checks',JSON.stringify(states));}catch(e){}
+}
+
+function loadChecks(){
+  try{
+    const s=JSON.parse(localStorage.getItem('eu26_checks')||'{}');
+    document.querySelectorAll('.todo-item').forEach((el,i)=>{if(s[i])el.classList.add('done')});
+  }catch(e){}
+}
+
+function autoOpenDay(){
+  const start=new Date('2026-07-12');
+  const end=new Date('2026-07-31');
+  const today=new Date(); today.setHours(0,0,0,0);
+  let n=1;
+  if(today>=start&&today<=end) n=Math.floor((today-start)/(864e5))+1;
+  else if(today>end) n=20;
+  n=Math.min(Math.max(n,1),20);
+  const t=document.getElementById('day'+String(n).padStart(2,'0'));
+  if(t){t.classList.add('open');const d=t.querySelector('.day-num');if(d)d.classList.add('today');}
+}
+
+function fixMapLinks(){
+  const isStandalone=window.navigator.standalone===true;
+  document.querySelectorAll('a[href*="maps.google.com"]').forEach(a=>{
+    a.setAttribute('target','_blank');
+    if(isStandalone){
+      a.addEventListener('click',function(e){e.preventDefault();window.open(this.href,'_blank');});
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  autoOpenDay();
+  loadChecks();
+  fixMapLinks();
+});
+</script>
+</body>
+</html>
