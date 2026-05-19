@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="light only">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -20,7 +20,7 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-:root{color-scheme:light;
+:root{color-scheme:light;color-scheme:light;
   --bg:#F7F4EF;
   --card:#FFFFFF;
   --muted:#EEEAE3;
@@ -44,7 +44,7 @@
 }
 
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink1);font-family:'Noto Sans TC',-apple-system,sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{background:#F7F4EF !important;color:var(--ink1);font-family:'Noto Sans TC',-apple-system,sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
 
 /* ── HERO ── */
 .hero{background:var(--ink1);color:#F7F4EF;padding:56px 24px 48px;position:relative;overflow:hidden}
@@ -89,11 +89,11 @@ body{background:var(--bg);color:var(--ink1);font-family:'Noto Sans TC',-apple-sy
 .route-line{width:20px;height:0.5px;background:var(--line);flex-shrink:0}
 
 /* ── DAY CARD ── */
-.day{border-bottom:0.5px solid var(--line);background:var(--bg)}
-.day-head{display:flex;align-items:stretch;gap:0;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;padding:20px 0 16px}
-.day-num-wrap{min-width:68px;flex-shrink:0;position:relative;padding-top:4px;padding-right:2px}
-.day-num{font-family:'DM Mono',monospace;font-size:15px;font-weight:400;letter-spacing:.01em;color:var(--line);line-height:1.1;white-space:nowrap;display:block}
-.day-week{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;color:var(--ink3);line-height:1;white-space:nowrap;display:block;text-align:right;margin-top:2px}
+.day{border-bottom:0.5px solid var(--line);background:var(--bg);overflow:visible}
+.day-head{display:flex;align-items:stretch;gap:0;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;padding:16px 0;overflow:visible}
+.day-num-wrap{width:60px;min-width:60px;flex-shrink:0;padding-top:3px;padding-left:4px;display:flex;flex-direction:column;align-items:flex-end;overflow:visible}
+.day-num{font-family:'DM Mono',monospace;font-size:14px;font-weight:400;letter-spacing:.02em;color:var(--line);line-height:1.2;white-space:nowrap;overflow:visible}
+.day-week{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--ink3);line-height:1;margin-top:2px;white-space:nowrap;text-align:right}
 .day-num.today{color:var(--accent)}
 .day-divider{width:0.5px;background:var(--line);margin:0 18px;flex-shrink:0}
 .day-info{flex:1;min-width:0}
@@ -1627,31 +1627,29 @@ function autoOpenDay(){
 }
 
 function fixMapLinks(){
-  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
-  document.querySelectorAll('a[href*="maps.google.com/maps?q=place_id:"]').forEach(a=>{
-    a.setAttribute('target','_blank');
-    const placeId=a.href.split('place_id:')[1];
-    if(!placeId)return;
-    // Try comgooglemaps:// first (opens App directly, no confirm dialog)
-    const appUrl='comgooglemaps://?q=place_id:'+placeId;
-    const webUrl='https://maps.google.com/maps?q=place_id:'+placeId;
-    a.addEventListener('click',function(e){
-      e.preventDefault();
-      if(isIOS){
-        // Try app URL, fallback to web after 1s
-        const t=Date.now();
-        const iframe=document.createElement('iframe');
-        iframe.style.display='none';
-        iframe.src=appUrl;
-        document.body.appendChild(iframe);
-        setTimeout(function(){
-          document.body.removeChild(iframe);
-          if(Date.now()-t<1500){window.open(webUrl,'_blank');}
-        },800);
-      }else{
-        window.open(webUrl,'_blank');
-      }
-    });
+  var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
+  var isStandalone=window.navigator.standalone===true;
+  document.querySelectorAll('a[href*="place_id:"]').forEach(function(a){
+    var pid=a.href.split('place_id:')[1];
+    if(!pid)return;
+    pid=pid.split('&')[0];
+    var url='https://maps.google.com/maps?q=place_id:'+pid;
+    // Set href to ensure correct URL
+    a.href=url;
+    if(isStandalone){
+      // In PWA mode: must use window.open to leave the app context
+      a.removeAttribute('target');
+      a.onclick=function(e){
+        e.preventDefault();
+        // Open in new Safari window - bypasses PWA WebView
+        window.open(url,'_system');
+        return false;
+      };
+    }else{
+      // Normal Safari: just target=_blank, iOS handles Universal Link to Maps app
+      a.setAttribute('target','_blank');
+      a.setAttribute('rel','noopener');
+    }
   });
 }
 
